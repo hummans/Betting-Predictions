@@ -24,5 +24,8 @@
             Aquakineza97
         </property>
 
+        <property name="hibernate.show_sql">true</property>
+
+
     </session-factory>
 </hibernate-configuration>

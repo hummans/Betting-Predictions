@@ -11,8 +11,9 @@ public class Bet {
     @Column(name = "betID")
     private int id;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "type")
-    private Enum type;
+    private betType type;
 
     @Column(name = "description")
     private String description;
@@ -26,11 +27,19 @@ public class Bet {
     public Bet(){
     }
 
-    public Bet(Enum type, String description, String outcomeA, String outcomeB) {
+    public Bet(betType type, String description, String outcomeA, String outcomeB) {
         this.type = type;
         this.description = description;
         this.outcomeA = outcomeA;
         this.outcomeB = outcomeB;
+    }
+
+    public betType getType() {
+        return type;
+    }
+
+    public void setType(betType type) {
+        this.type = type;
     }
 
     public int getId() {
@@ -39,14 +48,6 @@ public class Bet {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Enum getType() {
-        return type;
-    }
-
-    public void setType(Enum type) {
-        this.type = type;
     }
 
     public String getDescription() {

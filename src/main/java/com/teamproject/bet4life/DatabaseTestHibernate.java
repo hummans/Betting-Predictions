@@ -16,17 +16,14 @@ public class DatabaseTestHibernate {
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Bet.class)
-
                 .buildSessionFactory();
 
         Session session = factory.openSession();
 
         session.beginTransaction();
 
-
-        User u = session.get(User.class, 1);
-        System.out.println(u.getUsername() + " " + u.getFullname());
-
+        Bet b = session.get(Bet.class, 1);
+        System.out.println(b.getDescription());
 
 
 

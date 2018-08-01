@@ -4,10 +4,12 @@ import com.teamproject.bet4life.models.Bet;
 import com.teamproject.bet4life.repositories.base.BetRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class BetRepositoryImpl implements BetRepository {
 
     private SessionFactory sessionFactory;
