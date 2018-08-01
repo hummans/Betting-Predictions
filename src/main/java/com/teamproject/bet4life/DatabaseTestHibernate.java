@@ -1,5 +1,6 @@
 package com.teamproject.bet4life;
 
+import com.teamproject.bet4life.models.Bet;
 import com.teamproject.bet4life.models.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,6 +15,7 @@ public class DatabaseTestHibernate {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(User.class)
+                .addAnnotatedClass(Bet.class)
 
                 .buildSessionFactory();
 
