@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head-template">
+        <meta charset="UTF-8" />
+        <!--<meta th:include="this :: head" th:remove="tag"/>-->
+    </head>
+    <body>
+        <header th:fragment="header-template">
+            <!--<a href=“index.html” th:href=“@{/}”><img src="../public/img/site-logo.png" th:src="@{/img/site-logo.png}" /></a>-->
+            <a href="index.html" th:href="@{/}">Home</a>
+
+            <a href="users/login.html" th:href="@{/users/login}">Login</a>
+            <a href="users/register.html" th:href="@{/users/register}">Register</a>
+            <a href="posts/index.html" th:href="@{/posts}">Predictions</a>
+            <a href="posts/create.html" th:href="@{/posts/create}">Create Prediction</a>
+            <a href="bets/index.html" th:href="@{/posts}">Bets</a>
+            <a href="bets/create.html" th:href="@{/posts/create}">Create Bet</a>
+            <a href="users/index.html" th:href="@{/users}">Users</a>
+            <div id="logged-in-info"> <span>You are logged as: <b>(username)</b></span>
+                <form method="post" th:action="@{/users/logout}">
+                    <input type="submit" value="Logout"/>
+                </form>
+            </div>
+            
+        </header>
+
+        <p>TODO: Add last 3 bets and last 3 predicitons</p>
+
+        <footer th:fragment="footer-template">
+            &copy; Team Venom, Telerik Academy Alpha, 2018
+        </footer>
+    </body>
+</html>

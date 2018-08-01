@@ -5,6 +5,7 @@ import com.teamproject.bet4life.models.User;
 import com.teamproject.bet4life.services.base.BetService;
 import com.teamproject.bet4life.services.base.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,17 +13,19 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Arrays;
 import java.util.List;
 
-@RestController
+@Controller
 public class TestController {
+    /*
     private BetService betService;
 
     @Autowired
     public TestController(BetService betService) {
         this.betService = betService;
     }
+    */
 
-    @RequestMapping("/users/all")
-    public List<Bet> getAllUsers() {
-        return betService.getAll();
+    @RequestMapping("/")
+    public String index() {
+        return "index";
     }
 }
