@@ -1,6 +1,6 @@
 package com.teamproject.bet4life;
 
-import com.teamproject.bet4life.Models.User;
+import com.teamproject.bet4life.models.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -21,13 +21,13 @@ public class DatabaseTestHibernate {
 
         session.beginTransaction();
 
-        /*
+
         User u = session.get(User.class, 1);
-        System.out.println(u.getFirstName() + " " + u.getLastName() + " " + u.getBalance());
-        */
+        System.out.println(u.getUsername() + " " + u.getFullname());
 
 
-       
+
+
         session.getTransaction().commit();
         session.close();
 
