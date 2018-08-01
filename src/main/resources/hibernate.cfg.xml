@@ -12,10 +12,8 @@
             com.mysql.jdbc.Driver
         </property>
 
-        <!-- Assume test is the database name -->
-
         <property name = "hibernate.connection.url">
-            jdbc:mysql://localhost/test
+            jdbc:mysql://localhost:3306/betting4life
         </property>
 
         <property name = "hibernate.connection.username">
@@ -23,7 +21,7 @@
         </property>
 
         <property name = "hibernate.connection.password">
-            root123
+            Aquakineza97
         </property>
 
     </session-factory>
