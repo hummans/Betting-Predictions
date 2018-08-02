@@ -16,9 +16,13 @@ body>header a {
     color:darkorange;
 }
 
-body>header a:hover {
+body>header a.menu:hover {
     background: darkorange;
     color:black;
+}
+
+body>header>a>img {
+    height:150px;
 }
 
 body>footer {

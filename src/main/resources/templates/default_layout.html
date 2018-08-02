@@ -7,16 +7,16 @@
     </head>
     <body>
         <header th:fragment="header-template">
-            <!--<a href="index.html" th:href="@{/}"><img src="../static/img/website-logo.png" th:src="@{/img/website-logo.png}" style="border:1px solid red;"/></a>-->
-            <a href="index.html" th:href="@{/}">Home</a>
+            <a href="index.html" th:href="@{/}"><img src="../static/img/website-logo.png" th:src="@{/img/website-logo.png}" /></a>
+            <a class="menu" href="index.html" th:href="@{/}">Home</a>
 
-            <a href="users/login.html" th:href="@{/users/login}">Login</a>
-            <a href="users/register.html" th:href="@{/users/register}">Register</a>
-            <a href="posts/index.html" th:href="@{/posts}">Predictions</a>
-            <a href="posts/create.html" th:href="@{/posts/create}">Create Prediction</a>
-            <a href="bets/index.html" th:href="@{/posts}">Bets</a>
-            <a href="bets/create.html" th:href="@{/posts/create}">Create Bet</a>
-            <a href="users/index.html" th:href="@{/users}">Users</a>
+            <a class="menu" href="users/login.html" th:href="@{/users/login}">Login</a>
+            <a class="menu" href="users/register.html" th:href="@{/users/register}">Register</a>
+            <a class="menu" href="posts/index.html" th:href="@{/posts}">Predictions</a>
+            <a class="menu" href="posts/create.html" th:href="@{/posts/create}">Create Prediction</a>
+            <a class="menu" href="bets/index.html" th:href="@{/posts}">Bets</a>
+            <a class="menu" href="bets/create.html" th:href="@{/posts/create}">Create Bet</a>
+            <a class="menu" href="users/index.html" th:href="@{/users}">Users</a>
             <div id="logged-in-info"> <span>You are logged as: <b>(username)</b></span>
                 <form method="post" th:action="@{/users/logout}">
                     <input type="submit" value="Logout"/>
