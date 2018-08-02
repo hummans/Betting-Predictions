@@ -1,6 +1,7 @@
 package com.teamproject.bet4life;
 
 import com.teamproject.bet4life.models.Bet;
+import com.teamproject.bet4life.models.Prediction;
 import com.teamproject.bet4life.models.User;
 import com.teamproject.bet4life.models.UserBet;
 import org.hibernate.Session;
@@ -20,6 +21,7 @@ public class DatabaseTestHibernate {
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Bet.class)
                 .addAnnotatedClass(UserBet.class)
+                .addAnnotatedClass(Prediction.class)
                 .buildSessionFactory();
 
         Session session = factory.openSession();
@@ -32,7 +34,7 @@ public class DatabaseTestHibernate {
         */
 
 
-
+        /*
         List<UserBet> betsByUser = session.createQuery("From UserBet ").list();
 
         for (UserBet ub : betsByUser) {
@@ -46,6 +48,8 @@ public class DatabaseTestHibernate {
                 }
             }
         }
+        */
+
     /*
         List<User> allUsers = session.createQuery("From User").list();
 
@@ -53,6 +57,9 @@ public class DatabaseTestHibernate {
             System.out.println(user.getUsername() + " betted " + user.getUserBets());
         }
         */
+
+        Prediction p = session.get(Prediction.class, 5);
+        System.out.println(p.getContent() + " " + p.getUser().getUsername());
 
         session.getTransaction().commit();
         session.close();

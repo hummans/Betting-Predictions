@@ -2,6 +2,7 @@ package com.teamproject.bet4life.models;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -28,6 +29,17 @@ public class Bet {
 
     @OneToMany(mappedBy = "bet")
     private Set<UserBet> userBets = new HashSet<UserBet>();
+
+    @OneToMany(mappedBy = "bet")
+    private List<Prediction> predictions;
+
+    public List<Prediction> getPredictions() {
+        return predictions;
+    }
+
+    public void setPredictions(List<Prediction> predictions) {
+        this.predictions = predictions;
+    }
 
     public Bet(){
     }
