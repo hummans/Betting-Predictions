@@ -3,6 +3,7 @@ package com.teamproject.bet4life.services;
 import com.teamproject.bet4life.models.Bet;
 import com.teamproject.bet4life.repositories.base.BetRepository;
 import com.teamproject.bet4life.services.base.BetService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 public class BetServiceImpl implements BetService {
     private BetRepository betRepository;
 
+    @Autowired
     public BetServiceImpl(BetRepository betRepository) {
         this.betRepository = betRepository;
     }
@@ -20,8 +22,4 @@ public class BetServiceImpl implements BetService {
         return this.betRepository.getAll();
     }
 
-    @Override
-    public List<Bet> getLatest3() {
-        return betRepository.getLatest3();
-    }
 }

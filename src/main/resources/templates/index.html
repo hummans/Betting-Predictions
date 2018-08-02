@@ -4,20 +4,28 @@
 
     <title>Title</title>
 </head>
-<body>
+<body >
     <header th:replace="default_layout :: header-template">
 
     </header>
 
-    <main>
-        <article th:each="bet : ${latest3Bets}">
-            <h2 th:text="${bet.type}">Bet Type</h2>
-            <p th:utext="${bet.description}">Bet Description</p>
-
-            <p th:utext="${bet.outcomeA}">outcomeA</p>
-            <p th:utext="${bet.outcomeB}">outcomeB</p>
+    <section>
+        <h2>Latest Bets</h2>
+        <article th:each="userBet : ${latest3BetsByUser}">
+            <h3 class="title" th:text="${userBet.getBet().getDescription()}">Bet Description</h3>
+            <i>Prediction:</i>
+                <span th:text="${userBet.getOutcome() == T(com.teamproject.bet4life.models.UserBetPrediction).A ?
+                        userBet.getBet().getOutcomeA() : userBet.getBet().getOutcomeB()}">Someone to win</span>
+            <div class="date">
+                <i>by:</i>
+                <span class="content" th:utext="${userBet.getUser().getUsername()}">User Name</span>
+            </div>
+            <div>
+                <i>On:</i>
+                <span th:text="${#dates.format(userBet.getDate(), 'dd-MMM-yyyy')}">22-May-2016</span>
+            </div>
         </article>
-    </main>
+    </section>
 
     <footer th:replace="default_layout :: footer-template">
 

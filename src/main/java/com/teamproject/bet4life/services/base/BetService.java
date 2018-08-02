@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface BetService {
     List<Bet> getAll();
-    List<Bet> getLatest3();
 }

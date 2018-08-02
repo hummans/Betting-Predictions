@@ -1,3 +1,15 @@
+body {
+    background-image: url('http://www.atlanticmedia.co/pages/backgrounds/background_home.jpg');
+    /*
+    padding-left: 11em;
+    padding-right: 20em;
+    font-family:
+            Georgia, "Times New Roman",
+            Times, serif;
+    color: red;
+    */
+}
+
 body>header {
     background: #0047b3;
     /*background: #eee;*/
@@ -34,6 +46,20 @@ body>footer {
     text-align: center;
 }
 
+body>section {
+    margin:5px;
+    padding:10px;
+    background:#0047b3;
+    color:white;
+}
+
+body>section>article {
+    margin:10px;
+    padding:20px;
+    background:white;
+    color:black;
+}
+
 #logged-in-info {
     float: right;
     /*margin-top: 18px;*/
@@ -43,3 +69,4 @@ body>footer {
     display: inline-block;
     margin-right: 10px;
 }
+

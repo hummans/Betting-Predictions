@@ -2,6 +2,7 @@ package com.teamproject.bet4life.config;
 
 import com.teamproject.bet4life.models.Bet;
 import com.teamproject.bet4life.models.User;
+import com.teamproject.bet4life.models.UserBet;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,7 @@ public class AppConfiguration {
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Bet.class)
+                .addAnnotatedClass(UserBet.class)
                 .buildSessionFactory();
     }
 }

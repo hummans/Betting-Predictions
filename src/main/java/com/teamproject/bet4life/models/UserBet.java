@@ -1,6 +1,7 @@
 package com.teamproject.bet4life.models;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "users_bets")
@@ -9,6 +10,9 @@ public class UserBet {
     private User user;
     private Bet bet;
     private UserBetPrediction outcome;
+
+    @Temporal(TemporalType.DATE)
+    private Date date;
 
     @Id
     @GeneratedValue
@@ -49,5 +53,13 @@ public class UserBet {
 
     public void setOutcome(UserBetPrediction outcome) {
         this.outcome = outcome;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

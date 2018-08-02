@@ -2,7 +2,9 @@ package com.teamproject.bet4life.controllers;
 
 import com.teamproject.bet4life.models.Bet;
 import com.teamproject.bet4life.models.User;
+import com.teamproject.bet4life.models.UserBet;
 import com.teamproject.bet4life.services.base.BetService;
+import com.teamproject.bet4life.services.base.UserBetService;
 import com.teamproject.bet4life.services.base.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,18 +19,17 @@ import java.util.List;
 @Controller
 public class TestController {
 
-    private BetService betService;
+    private UserBetService userBetService;
 
     @Autowired
-    public TestController(BetService betService) {
-        this.betService = betService;
+    public TestController(UserBetService userBetService) {
+        this.userBetService = userBetService;
     }
-
 
     @RequestMapping("/")
     public String index(Model model) {
-        List<Bet> latest3Bets = betService.getLatest3();
-        model.addAttribute("latest3Bets", latest3Bets);
+        List<UserBet> latest3BetsByUser = userBetService.getLatest3Bets();
+        model.addAttribute("latest3BetsByUser", latest3BetsByUser);
 
         return "index";
     }
