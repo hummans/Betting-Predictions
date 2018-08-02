@@ -19,4 +19,9 @@ public class BetServiceImpl implements BetService {
     public List<Bet> getAll() {
         return this.betRepository.getAll();
     }
+
+    @Override
+    public List<Bet> getLatest3() {
+        return betRepository.getLatest3();
+    }
 }

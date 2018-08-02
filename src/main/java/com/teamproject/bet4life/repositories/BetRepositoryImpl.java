@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class BetRepositoryImpl implements BetRepository {
@@ -37,5 +38,17 @@ public class BetRepositoryImpl implements BetRepository {
         }
 
         return bets;
+    }
+
+    @Override
+    public List<Bet> getLatest3() {
+        List<Bet> bets = getAll();
+        List<Bet> latest3Bets = new ArrayList<>();
+
+       latest3Bets = bets.stream()
+                        .limit(3)
+                        .collect(Collectors.toList());
+
+        return latest3Bets;
     }
 }

@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface BetRepository {
     List<Bet> getAll();
+    List<Bet> getLatest3();
 }
