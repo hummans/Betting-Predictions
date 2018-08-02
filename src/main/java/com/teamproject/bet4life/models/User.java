@@ -1,10 +1,13 @@
 package com.teamproject.bet4life.models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Column(name="userID")
@@ -18,6 +21,18 @@ public class User {
 
     @Column(name="password")
     private String password;
+
+    @OneToMany(mappedBy = "user")
+    private Set<UserBet> userBets = new HashSet<UserBet>();
+
+    public User() {
+    }
+
+    public User(String username, String fullname, String password) {
+        this.username = username;
+        this.fullname = fullname;
+        this.password = password;
+    }
 
     public int getId() {
         return id;
@@ -51,13 +66,13 @@ public class User {
         this.password = password;
     }
 
-    public User() {
+
+    public Set<UserBet> getUserBets() {
+        return userBets;
     }
 
-    public User(String username, String fullname, String password) {
-        this.username = username;
-        this.fullname = fullname;
-        this.password = password;
+    public void setUserBets(Set<UserBet> userBets) {
+        this.userBets = userBets;
     }
 
     @Override

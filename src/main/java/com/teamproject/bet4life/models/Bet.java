@@ -1,6 +1,8 @@
 package com.teamproject.bet4life.models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "bets")
@@ -13,7 +15,7 @@ public class Bet {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "type")
-    private betType type;
+    private BetType type;
 
     @Column(name = "description")
     private String description;
@@ -24,21 +26,24 @@ public class Bet {
     @Column(name = "outcomeB")
     private String outcomeB;
 
+    @OneToMany(mappedBy = "bet")
+    private Set<UserBet> userBets = new HashSet<UserBet>();
+
     public Bet(){
     }
 
-    public Bet(betType type, String description, String outcomeA, String outcomeB) {
+    public Bet(BetType type, String description, String outcomeA, String outcomeB) {
         this.type = type;
         this.description = description;
         this.outcomeA = outcomeA;
         this.outcomeB = outcomeB;
     }
 
-    public betType getType() {
+    public BetType getType() {
         return type;
     }
 
-    public void setType(betType type) {
+    public void setType(BetType type) {
         this.type = type;
     }
 
@@ -72,6 +77,15 @@ public class Bet {
 
     public void setOutcomeB(String outcomeB) {
         this.outcomeB = outcomeB;
+    }
+
+
+    public Set<UserBet> getUserBets() {
+        return userBets;
+    }
+
+    public void setUserBets(Set<UserBet> userBets) {
+        this.userBets = userBets;
     }
 
     @Override

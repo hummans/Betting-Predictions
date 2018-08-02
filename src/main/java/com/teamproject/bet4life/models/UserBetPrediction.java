@@ -1,5 +1,5 @@
 package com.teamproject.bet4life.models;
 
-public enum BetType {
-    Sports, Other
+public enum UserBetPrediction {
+    A, B
 }
