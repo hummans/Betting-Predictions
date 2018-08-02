@@ -3,6 +3,7 @@ package com.teamproject.bet4life.models;
 import javax.persistence.*;
 import java.util.Date;
 
+
 @Entity
 @Table(name="predictions")
 public class Prediction {

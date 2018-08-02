@@ -1,6 +1,7 @@
 package com.teamproject.bet4life.config;
 
 import com.teamproject.bet4life.models.Bet;
+import com.teamproject.bet4life.models.Prediction;
 import com.teamproject.bet4life.models.User;
 import com.teamproject.bet4life.models.UserBet;
 import org.hibernate.SessionFactory;
@@ -17,6 +18,7 @@ public class AppConfiguration {
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Bet.class)
                 .addAnnotatedClass(UserBet.class)
+                .addAnnotatedClass(Prediction.class)
                 .buildSessionFactory();
     }
 }

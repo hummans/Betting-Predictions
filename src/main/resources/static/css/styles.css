@@ -47,21 +47,31 @@ body>footer {
     clear: both;
 }
 
-#latestBets {
+
+
+.latestContent {
     margin:5px;
     padding:10px;
     background-color:rgba(0, 0, 0, 0.3);
-    width: 50%;
+    box-sizing:border-box;
+    /*margin:0 auto;*/
+}
+
+#latest-bets {
     float: left;
 }
 
-.bet-info {
+#latest-predictions {
+    float: left;
+}
+
+.latest-content-info {
     margin:10px;
     padding:20px;
     background-color:rgba(0, 0, 0, 0.5);
 }
 
-.bet-info:hover {
+.latest-content-info:hover {
 
     background-color:rgba(0, 0, 0, 0.7);
     font-weight: bold;

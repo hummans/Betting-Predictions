@@ -25,7 +25,7 @@ public class PredictionRepositoryImpl implements PredictionRepository {
         try(Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
-            predictions = session.createQuery("From User").list();
+            predictions = session.createQuery("From Prediction").list();
 
             session.getTransaction().commit();
         } catch(Exception e) {

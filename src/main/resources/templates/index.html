@@ -10,9 +10,9 @@
     </header>
 
     <main>
-        <section id="latestBets">
+        <section id="latest-bets" class="latestContent">
             <h2>Latest Bets</h2>
-            <article class="bet-info" th:each="userBet : ${latest3BetsByUser}">
+            <article class="latest-content-info" th:each="userBet : ${latest3BetsByUser}">
                 <h3 class="title" th:text="${userBet.getBet().getDescription()}">Bet Description</h3>
                 <i>Prediction:</i>
                 <span th:text="${userBet.getOutcome() == T(com.teamproject.bet4life.models.UserBetPrediction).A ?
@@ -28,7 +28,23 @@
             </article>
         </section>
 
+        <section id="latest-predictions" class="latestContent">
+            <h2>Latest Predictions</h2>
+            <article class="latest-content-info" th:each="prediction : ${latest3Predictions}">
+                <h3 th:text="${prediction.getContent()}">Prediction Content</h3>
 
+                <i>For:</i>
+                <span class="title" th:text="${prediction.getBet().getDescription()}">Bet Description</span>
+                <div class="date">
+                    <i>by:</i>
+                    <span class="content" th:utext="${prediction.getUser().getUsername()}">User Name</span>
+                </div>
+                <div>
+                    <i>On:</i>
+                    <span th:text="${#dates.format(prediction.getDatePublished(), 'yyyy-MMM-dd HH:MM:SS')}">22-May-2016 15:40:32</span>
+                </div>
+            </article>
+        </section>
     </main>
 
 
