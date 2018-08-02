@@ -2,11 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:fragment="head-template">
         <meta charset="UTF-8" />
+        <link rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}" />
         <!--<meta th:include="this :: head" th:remove="tag"/>-->
     </head>
     <body>
         <header th:fragment="header-template">
-            <!--<a href=“index.html” th:href=“@{/}”><img src="../public/img/site-logo.png" th:src="@{/img/site-logo.png}" /></a>-->
+            <!--<a href="index.html" th:href="@{/}"><img src="../static/img/website-logo.png" th:src="@{/img/website-logo.png}" style="border:1px solid red;"/></a>-->
             <a href="index.html" th:href="@{/}">Home</a>
 
             <a href="users/login.html" th:href="@{/users/login}">Login</a>
@@ -21,10 +22,10 @@
                     <input type="submit" value="Logout"/>
                 </form>
             </div>
-            
+
         </header>
 
-        <p>TODO: Add last 3 bets and last 3 predicitons</p>
+        <h1>TODO: Add last 3 bets and last 3 predicitons</h1>
 
         <footer th:fragment="footer-template">
             &copy; Team Venom, Telerik Academy Alpha, 2018
