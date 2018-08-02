@@ -1,5 +1,6 @@
 body {
     background-image: url('http://www.atlanticmedia.co/pages/backgrounds/background_home.jpg');
+    color:white;
     /*
     padding-left: 11em;
     padding-right: 20em;
@@ -11,7 +12,7 @@ body {
 }
 
 body>header {
-    background: #0047b3;
+    background-color:rgba(0, 0, 0, 0.5);
     /*background: #eee;*/
     padding: 5px;
 }
@@ -38,27 +39,33 @@ body>header>a>img {
 }
 
 body>footer {
-    background: #0047b3;
+    background-color:rgba(0, 0, 0, 0.5);
     /*background: #eee;*/
-    color:white;
     padding: 5px;
     margin: 10px 0;
     text-align: center;
 }
 
-body>section {
+#latestBets {
     margin:5px;
     padding:10px;
-    background:#0047b3;
-    color:white;
+    background-color:rgba(0, 0, 0, 0.3);
+
 }
 
-body>section>article {
+.bet-info {
     margin:10px;
     padding:20px;
-    background:white;
-    color:black;
+    background-color:rgba(0, 0, 0, 0.5);
 }
+
+.bet-info:hover {
+
+    background-color:rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+}
+
+
 
 #logged-in-info {
     float: right;
