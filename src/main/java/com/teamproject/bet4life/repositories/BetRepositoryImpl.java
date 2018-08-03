@@ -1,6 +1,6 @@
 package com.teamproject.bet4life.repositories;
 
-import com.teamproject.bet4life.models.Bet;
+import com.teamproject.bet4life.entities.Bet;
 import com.teamproject.bet4life.repositories.base.BetRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

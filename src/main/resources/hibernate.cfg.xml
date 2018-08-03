@@ -17,11 +17,11 @@
         </property>
 
         <property name = "hibernate.connection.username">
-            root
+            dev_user
         </property>
 
         <property name = "hibernate.connection.password">
-            Aquakineza97
+            dev_user
         </property>
 
         <property name="hibernate.show_sql">true</property>
