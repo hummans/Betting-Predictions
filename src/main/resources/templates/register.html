@@ -3,33 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css"
+          th:href="@{/bootstrap/css/bootstrap.min.css}">
 </head>
 <body>
 <div class="container">
     <h1>Register</h1>
 
-    <div class="form-group has-danger">
-        <label class="form-control-label" for="inputUsername">Username</label>
-        <input type="text" class="form-control form-control-danger" id="inputUsername">
-        <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
-    </div>
+    <form method="post">
+        <div class="form-group has-danger">
+            <label class="form-control-label" for="inputUsername">Username</label>
+            <input type="text" class="form-control form-control-danger" id="inputUsername">
+            <div class="form-control-feedback">Sorry,
+                that username's taken. Try another?
+            </div>
+        </div>
 
-    <div class="form-group has-danger">
-        <label class="form-control-label" for="inputPassword">Password</label>
-        <input type="password" class="form-control form-control-danger" id="inputPassword">
-        <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
-    </div>
+        <div class="form-group has-danger">
+            <label class="form-control-label" for="inputPassword">Password</label>
+            <input type="password" class="form-control form-control-danger" id="inputPassword">
+            <div class="form-control-feedback">Sorry,
+                that username's taken. Try another?
+            </div>
+        </div>
 
-    <div class="form-group has-danger">
-        <label class="form-control-label" for="inputConfirmPassword">Confirm Password</label>
-        <input type="password" class="form-control form-control-danger" id="inputConfirmPassword">
-        <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
-    </div>
+        <div class="form-group has-danger">
+            <label class="form-control-label" for="inputConfirmPassword">Confirm Password</label>
+            <input type="password" class="form-control form-control-danger" id="inputConfirmPassword">
+            <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
+        </div>
+    </form>
 </div>
-
-<script th:href="@{/jquery/jquery.min.js}"></script>
-<script th:href="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:href="@{/jquery/jquery.min.js}"></script>
+    <script th:href="@{/bootstrap/js/bootstrap.min.js}"></script>
 
 </body>
 </html>

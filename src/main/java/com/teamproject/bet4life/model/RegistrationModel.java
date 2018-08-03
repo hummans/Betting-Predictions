@@ -1,9 +1,16 @@
 package com.teamproject.bet4life.model;
 
+import com.teamproject.bet4life.annotations.IsPasswordMatching;
+
+import javax.validation.constraints.Size;
+
+@IsPasswordMatching
 public class RegistrationModel {
 
+    @Size(min = 5)
     private String username;
 
+    @Size(min = 5)
     private String password;
 
     private String confirmedPassword;
