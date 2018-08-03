@@ -1,4 +1,4 @@
-package com.teamproject.bet4life.repositories.base;
+package com.teamproject.bet4life.repositories;
 
 import com.teamproject.bet4life.entities.User;
 import org.springframework.data.repository.CrudRepository;
@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer> {
+
     List<User> getAll();
 }

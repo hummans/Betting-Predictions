@@ -1,6 +1,5 @@
 package com.teamproject.bet4life.annotations;
 
-import com.teamproject.bet4life.entities.User;
 import com.teamproject.bet4life.model.RegistrationModel;
 
 import javax.validation.ConstraintValidator;
@@ -18,7 +17,7 @@ public class IsPasswordMatchingValidator implements ConstraintValidator<IsPasswo
             return ((RegistrationModel) userClass)
                     .getPassword()
                     .equals(((RegistrationModel) userClass)
-                            .getConfirmedPassword());
+                            .getConfirmPassword());
         }
         return false;
     }

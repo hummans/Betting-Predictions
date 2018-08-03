@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = IsPasswordMatchingValidator.class)
 public @interface IsPasswordMatching {
 
-    String message() default "Invalid Date";
+    String message() default "Passwords Not Matching";
 
     Class<?>[] groups() default {};
 

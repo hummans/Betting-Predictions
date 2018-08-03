@@ -19,13 +19,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/register",
                         "/bootstrap/**",
                         "/jquery/**")
-                .permitAll()
-                .anyRequest()
-                .authenticated();
+                .permitAll().anyRequest().authenticated()
+                .and()
+                .csrf().disable();
     }
 
     @Bean
-    public BCryptPasswordEncoder getBCryptPasswordEncoder(){
+    public BCryptPasswordEncoder getBCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 }
