@@ -10,14 +10,9 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private UserRepository userRepository;
 
-    @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
     @Override
-    public List<User> getAll() {
-        return this.userRepository.getAll();
+    public void register() {
+
     }
 }

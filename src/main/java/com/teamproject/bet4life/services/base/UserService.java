@@ -5,5 +5,6 @@ import com.teamproject.bet4life.entities.User;
 import java.util.List;
 
 public interface UserService {
-    List<User> getAll();
+
+    void register();
 }
