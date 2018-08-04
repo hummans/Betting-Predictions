@@ -15,6 +15,7 @@ public class RegistrationModel {
 
     private String confirmPassword;
 
+
     public String getUsername() {
         return username;
     }
