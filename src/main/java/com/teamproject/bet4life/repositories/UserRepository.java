@@ -1,13 +1,15 @@
 package com.teamproject.bet4life.repositories;
 
-import com.teamproject.bet4life.entities.User;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import com.teamproject.bet4life.model.User;
 
 import java.util.List;
 
-@Repository
-public interface UserRepository extends CrudRepository<User, Integer> {
+public interface UserRepository {
 
-    List<User> getAll();
+    List<User> getAllUsers();
+
+    User getUserByID(int id);
+
+    boolean registerUser(User u);
+
 }

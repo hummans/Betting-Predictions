@@ -1,5 +1,7 @@
 package com.teamproject.bet4life.configuration;
 
+import com.teamproject.bet4life.model.User;
+import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,6 +24,16 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll().anyRequest().authenticated()
                 .and()
                 .csrf().disable();
+    }
+
+    @Bean
+
+    public SessionFactory createFactory(){
+        System.out.println("SessionFactory initialized successfully.");
+        return new org.hibernate.cfg.Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(User.class)
+                .buildSessionFactory();
     }
 
     @Bean

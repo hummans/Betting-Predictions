@@ -1,6 +1,6 @@
-package com.teamproject.bet4life.controllers;
+package com.teamproject.bet4life.controller;
 
-import com.teamproject.bet4life.model.RegistrationModel;
+import com.teamproject.bet4life.RegistrationModel.RegistrationModel;
 import com.teamproject.bet4life.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,9 +27,7 @@ public class UserController {
         if (bindingResult.hasErrors()){
             return "register";
         }
-
-        this.userService.register(registrationModel);
-
+        
         return "redirect:/";
     }
 }

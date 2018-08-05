@@ -1,4 +1,4 @@
-package com.teamproject.bet4life.controllers;
+package com.teamproject.bet4life.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

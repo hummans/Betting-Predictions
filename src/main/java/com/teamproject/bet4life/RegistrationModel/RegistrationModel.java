@@ -1,4 +1,4 @@
-package com.teamproject.bet4life.model;
+package com.teamproject.bet4life.RegistrationModel;
 
 import com.teamproject.bet4life.annotations.IsPasswordMatching;
 
