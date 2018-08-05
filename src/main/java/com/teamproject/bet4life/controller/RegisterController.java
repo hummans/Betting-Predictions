@@ -1,3 +1,4 @@
+/*
 package com.teamproject.bet4life.controller;
 
 import com.teamproject.bet4life.RegistrationModel.RegistrationModel;
@@ -36,3 +37,4 @@ public class RegisterController {
         return "redirect:/";
     }
 }
+*/
