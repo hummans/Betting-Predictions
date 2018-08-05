@@ -3,14 +3,25 @@ package com.teamproject.bet4life.configuration;
 
 import com.teamproject.bet4life.model.User;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class WebUserDetails extends User implements UserDetails {
+    private ArrayList<String> roles;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        String userRoles = StringUtils.collectionToCommaDelimitedString(this.roles);
+        return AuthorityUtils.commaSeparatedStringToAuthorityList(userRoles);
     }
 
     @Override
@@ -33,11 +44,12 @@ public class WebUserDetails extends User implements UserDetails {
         return true;
     }
 
-    private User user;
 
-    public WebUserDetails(User user) {
+
+    public WebUserDetails(User user, ArrayList<String> roles) {
         super(user.getUsername(), user.getPassword());
 
         this.user = user;
+        this.roles = roles;
     }
 }
