@@ -31,32 +31,12 @@ public class UserController {
 
     @GetMapping("/id/{id}")
     public User getUserByID(@PathVariable String id) {
-        System.out.println("SAD: " + id);
         User u = service.getUserByID(Integer.parseInt(id));
-        System.out.println("BLYAT");
         System.out.println(u);
 
         return u;
     }
 
-   /* @PostMapping("register-user")
-    public String newUser(@RequestParam String username, @RequestParam String pass){
-
-        User u = new User();
-
-        u.setDisplayName("sad");
-
-        u.setPass("123asd");
-
-        u.setEmail("wat@abv.bg");
-
-        if(service.registerUser(u)){
-            return "redirect:/all";
-        }
-
-        return "redirect:/register";
-    }
-    */
     public UserService getService() {
         return service;
     }

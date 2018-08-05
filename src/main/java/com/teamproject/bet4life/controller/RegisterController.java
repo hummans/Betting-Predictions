@@ -1,6 +1,7 @@
 package com.teamproject.bet4life.controller;
 
 import com.teamproject.bet4life.RegistrationModel.RegistrationModel;
+import com.teamproject.bet4life.model.User;
 import com.teamproject.bet4life.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,10 @@ public class RegisterController {
             return "register";
         }
 
+        User u = new User();
+        u.setUsername(registrationModel.getUsername());
+        u.setPassword(registrationModel.getPassword());
+        userService.registerUser(u);
         return "redirect:/";
     }
 }
