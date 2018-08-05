@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot and Thymeleaf example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h3>Spring Boot and Thymeleaf, part 2 - forms</h3>
+
+<form  th:object="${user}" method="post">
+    <table>
+        <!--
+        <tr>
+            <td>User id:</td>
+            <td><input type="text" th:field="*{predictionUserID}" /></td>
+
+        </tr>
+
+        -->
+        <tr>
+            <td>username:</td>
+            <td><input type="text" th:field="*{username}" /></td>
+        </tr>
+        <tr>
+            <td>fullname:</td>
+            <td><input type="text" th:field="*{fullname}" /></td>
+        </tr>
+        <tr>
+            <td>password:</td>
+            <td><input type="text" th:field="*{password}" /></td>
+
+        </tr>
+        <tr>
+            <td><button type="submit">Submit post</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

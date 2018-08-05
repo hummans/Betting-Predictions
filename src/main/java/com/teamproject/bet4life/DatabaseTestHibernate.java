@@ -10,6 +10,7 @@ import org.hibernate.cfg.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -28,39 +29,12 @@ public class DatabaseTestHibernate {
 
         session.beginTransaction();
 
-        /*
-        Bet b = session.get(Bet.class, 1);
-        System.out.println(b.getDescription());
-        */
-
-
-        /*
-        List<UserBet> betsByUser = session.createQuery("From UserBet ").list();
-
-        for (UserBet ub : betsByUser) {
-
-            if (ub.getUser().getUsername().equals("ivan123")) {
-                System.out.print(ub.getUser().getUsername() + " betted on " + ub.getBet().getDescription() + ", on " + ub.getDate() +" for outcome: ");
-                if (ub.getBet().getOutcomeA().equals(ub.getOutcome())) {
-                    System.out.println(ub.getBet().getOutcomeA());
-                } else {
-                    System.out.println(ub.getBet().getOutcomeB());
-                }
-            }
-        }
-        */
-
-    /*
-        List<User> allUsers = session.createQuery("From User").list();
-
-        for (User user : allUsers) {
-            System.out.println(user.getUsername() + " betted " + user.getUserBets());
-        }
-        */
-
-        Prediction p = session.get(Prediction.class, 5);
-        System.out.println(p.getContent() + " " + p.getUser().getUsername());
-
+       Prediction p = new Prediction();
+       p.setContent("This is a test prediction");
+       p.setDatePublished(new Date());
+       p.setUser(session.get(User.class,3));
+       p.setBet(session.get(Bet.class,5));
+       session.save(p);
         session.getTransaction().commit();
         session.close();
 

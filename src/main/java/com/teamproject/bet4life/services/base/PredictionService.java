@@ -7,4 +7,5 @@ import java.util.List;
 public interface PredictionService {
     List<Prediction> getAll();
     List<Prediction> getLatest3Predictions();
+
 }

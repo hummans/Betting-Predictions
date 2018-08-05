@@ -1,6 +1,7 @@
 package com.teamproject.bet4life.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 
@@ -30,13 +31,14 @@ public class Prediction {
     public Prediction() {
     }
 
+    /*
     public Prediction(String content, Date datePublished, User user, Bet bet) {
         this.content = content;
         this.datePublished = datePublished;
         this.user = user;
         this.bet = bet;
     }
-
+*/
     public int getId() {
         return id;
     }

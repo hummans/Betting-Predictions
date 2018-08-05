@@ -26,4 +26,6 @@ public class PredictionServiceImpl implements PredictionService {
     public List<Prediction> getLatest3Predictions() {
         return predictionRepository.getLatest3Predictions();
     }
+
+
 }

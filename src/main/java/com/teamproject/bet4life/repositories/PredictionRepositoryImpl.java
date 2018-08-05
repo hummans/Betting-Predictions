@@ -42,4 +42,19 @@ public class PredictionRepositoryImpl implements PredictionRepository {
                 .limit(3)
                 .collect(Collectors.toList());
     }
+    /*
+
+    @Override
+    public void savePrediction(Prediction prediction) {
+        try (Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+
+            session.save(prediction);
+
+            session.getTransaction().commit();
+        }   catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    */
 }

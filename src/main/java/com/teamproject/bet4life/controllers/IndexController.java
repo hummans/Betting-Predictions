@@ -19,13 +19,13 @@ import java.util.Arrays;
 import java.util.List;
 
 @Controller
-public class TestController {
+public class IndexController {
 
     private UserBetService userBetService;
     private PredictionService predictionService;
 
     @Autowired
-    public TestController(UserBetService userBetService, PredictionService predictionService) {
+    public IndexController(UserBetService userBetService, PredictionService predictionService) {
         this.userBetService = userBetService;
         this.predictionService = predictionService;
     }
