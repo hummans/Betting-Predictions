@@ -1,6 +1,8 @@
 package com.teamproject.bet4life.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -18,12 +20,31 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "userID"),
+            inverseJoinColumns = @JoinColumn(name = "roleID")
+    )
+    private Set<Role> roles;
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
     public User() {
+
     }
 
     public User(String username, String password){
         this.username = username;
         this.password = password;
+
+        this.roles = new HashSet<>();
     }
 
     public int getId() {

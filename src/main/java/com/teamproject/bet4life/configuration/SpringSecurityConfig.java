@@ -1,5 +1,6 @@
 package com.teamproject.bet4life.configuration;
 
+import com.teamproject.bet4life.model.Role;
 import com.teamproject.bet4life.model.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +69,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         return new org.hibernate.cfg.Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(User.class)
+                .addAnnotatedClass(Role.class)
                 .buildSessionFactory();
     }
 

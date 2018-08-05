@@ -1,5 +1,6 @@
 package com.teamproject.bet4life;
 
+import com.teamproject.bet4life.model.Role;
 import com.teamproject.bet4life.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,12 +15,16 @@ public class DatabaseTestHibernate {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(User.class)
+                .addAnnotatedClass(Role.class)
                 .buildSessionFactory();
 
         Session session = factory.openSession();
 
         session.beginTransaction();
-
+        Role r = session.get(Role.class, 1);
+        for (User u : r.getUsers()) {
+            System.out.println(u.getUsername());
+        }
 
         session.getTransaction().commit();
         session.close();
