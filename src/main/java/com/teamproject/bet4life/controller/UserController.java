@@ -4,6 +4,7 @@ import com.teamproject.bet4life.bindingModel.UserBindingModel;
 import com.teamproject.bet4life.model.User;
 import com.teamproject.bet4life.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,11 +33,11 @@ public class UserController {
             return "redirect:/register";
         }
 
-        //BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
         User user = new User(
                 userBindingModel.getUsername(),
-                userBindingModel.getPassword()
+                bCryptPasswordEncoder.encode(userBindingModel.getPassword())
         );
 
         service.registerUser(user);
