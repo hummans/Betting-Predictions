@@ -1,22 +1,54 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="@{/}">betting4life</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li>
+                <a th:href="@{/}">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+            <li>
+                <a th:href="@{/}">Bets</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
+            <li sec:authorize="isAuthenticated()">
+                <a th:href="@{/}">Make Bet</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+            <li>
+                <a th:href="@{/}">Predictions</a>
+            </li>
+            <li sec:authorize="isAuthenticated()">
+                <a th:href="@{/}">Make Prediction</a>
+            </li>
+            <li>
+                <a th:href="@{/}">Users</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li sec:authorize="isAuthenticated()">
+                <a th:href="@{/profile}">
+                    <span class="glyphicon glyphicon-user"></span>
+                    Profile
+                </a>
+            </li>
+            <li sec:authorize="isAuthenticated()">
+                <a th:href="@{/logout}">
+                    <span class="glyphicon glyphicon-log-out"></span>
+                    Logout
+                </a>
+            </li>
+            <li sec:authorize="isAnonymous()">
+                <a th:href="@{/register}">
+                    <span class="glyphicon glyphicon-user"></span>
+                    REGISTER
+                </a>
+            </li>
+            <li sec:authorize="isAnonymous()">
+                <a th:href="@{/login}">
+                    <span class="glyphicon glyphicon-log-in"></span>
+                    LOGIN
+                </a>
             </li>
         </ul>
     </div>
+
 </nav>
