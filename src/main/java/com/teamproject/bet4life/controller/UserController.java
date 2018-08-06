@@ -2,7 +2,8 @@ package com.teamproject.bet4life.controller;
 
 import com.teamproject.bet4life.bindingModel.UserBindingModel;
 import com.teamproject.bet4life.models.User;
-import com.teamproject.bet4life.services.UserService;
+import com.teamproject.bet4life.repositories.base.RoleRepository;
+import com.teamproject.bet4life.services.base.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,8 @@ public class UserController {
 
     @Autowired
     private UserService service;
+
+    private RoleRepository roleRepository;
 
     @Autowired
     public UserController(UserService service) {
@@ -35,13 +38,14 @@ public class UserController {
 
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
+        /*
         User user = new User(
                 userBindingModel.getUsername(),
                 bCryptPasswordEncoder.encode(userBindingModel.getPassword())
         );
 
         service.registerUser(user);
-
+        */
         return "redirect:/";
     }
 

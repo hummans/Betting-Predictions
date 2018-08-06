@@ -2,6 +2,7 @@ package com.teamproject.bet4life.services;
 
 import com.teamproject.bet4life.models.User;
 import com.teamproject.bet4life.repositories.base.UserRepository;
+import com.teamproject.bet4life.services.base.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,15 +30,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    @Override
     public boolean registerUser(User u) {
         return userRepository.registerUser(u);
     }
 
-    public UserRepository getUserRepository() {
-        return userRepository;
-    }
 
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 }

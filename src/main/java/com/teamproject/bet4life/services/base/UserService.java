@@ -1,4 +1,4 @@
-package com.teamproject.bet4life.services;
+package com.teamproject.bet4life.services.base;
 
 import com.teamproject.bet4life.models.User;
 
@@ -9,6 +9,8 @@ public interface UserService {
     List<User> getAllUsers();
 
     User getUserByID(int id);
+
+    User findByUsername(String username);
 
     boolean registerUser(User u);
 

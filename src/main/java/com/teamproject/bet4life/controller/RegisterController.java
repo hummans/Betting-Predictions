@@ -3,7 +3,7 @@ package com.teamproject.bet4life.controller;
 
 import com.teamproject.bet4life.RegistrationModel.RegistrationModel;
 import com.teamproject.bet4life.models.User;
-import com.teamproject.bet4life.services.UserService;
+import com.teamproject.bet4life.services.base.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
