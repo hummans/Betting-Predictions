@@ -1,0 +1,55 @@
+package com.teamproject.bet4life.configuration;
+
+
+import com.teamproject.bet4life.model.User;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.util.StringUtils;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class WebUserDetails extends User implements UserDetails {
+    private ArrayList<String> roles;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        String userRoles = StringUtils.collectionToCommaDelimitedString(this.roles);
+        return AuthorityUtils.commaSeparatedStringToAuthorityList(userRoles);
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+
+
+    public WebUserDetails(User user, ArrayList<String> roles) {
+        super(user.getUsername(), user.getPassword());
+
+        this.user = user;
+        this.roles = roles;
+    }
+}
