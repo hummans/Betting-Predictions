@@ -2,7 +2,7 @@ package com.teamproject.bet4life.controller;
 
 import com.teamproject.bet4life.bindingModel.UserBindingModel;
 import com.teamproject.bet4life.models.User;
-import com.teamproject.bet4life.service.UserService;
+import com.teamproject.bet4life.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -53,7 +53,7 @@ public class UserController {
     /*
     @GetMapping("all")
     List<User> getAllUsers(){
-        List<User> sad = service.getAllUsers();
+        List<User> sad = services.getAllUsers();
         System.out.println(sad);
 
         return sad;
@@ -61,18 +61,18 @@ public class UserController {
 
     @GetMapping("/id/{id}")
     public User getUserByID(@PathVariable String id) {
-        User u = service.getUserByID(Integer.parseInt(id));
+        User u = services.getUserByID(Integer.parseInt(id));
         System.out.println(u);
 
         return u;
     }
 
     public UserService getService() {
-        return service;
+        return services;
     }
 
-    public void setService(UserService service) {
-        this.service = service;
+    public void setService(UserService services) {
+        this.services = services;
     }
     */
 

@@ -1,4 +1,4 @@
-package com.teamproject.bet4life.service;
+package com.teamproject.bet4life.services;
 
 
 import com.teamproject.bet4life.models.User;
@@ -25,7 +25,6 @@ public class WebUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
-
         if (user == null) {
             throw new UsernameNotFoundException("Invalid user");
         } else {

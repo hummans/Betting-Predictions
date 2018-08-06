@@ -1,4 +1,4 @@
-package com.teamproject.bet4life.service;
+package com.teamproject.bet4life.services;
 
 import com.teamproject.bet4life.models.User;
 

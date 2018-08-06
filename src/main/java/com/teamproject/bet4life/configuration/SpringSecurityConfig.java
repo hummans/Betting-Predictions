@@ -29,8 +29,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(this.userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
 
-
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         /*
