@@ -14,10 +14,6 @@ public class WebUserDetails extends User implements UserDetails {
     private ArrayList<String> roles;
     private User user;
 
-    public User getUser() {
-        return user;
-    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         String userRoles = StringUtils.collectionToCommaDelimitedString(this.roles);
@@ -44,10 +40,12 @@ public class WebUserDetails extends User implements UserDetails {
         return true;
     }
 
-
+    public User getUser() {
+        return user;
+    }
 
     public WebUserDetails(User user, ArrayList<String> roles) {
-        super(user.getUsername(), user.getPassword());
+        super(user.getUsername(), user.getFullname(), user.getPassword());
 
         this.user = user;
         this.roles = roles;

@@ -2,7 +2,7 @@ package com.teamproject.bet4life.service;
 
 
 import com.teamproject.bet4life.models.User;
-import com.teamproject.bet4life.repositories.UserRepository;
+import com.teamproject.bet4life.repositories.base.UserRepository;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

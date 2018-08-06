@@ -1,4 +1,4 @@
-package com.teamproject.bet4life.repositories;
+package com.teamproject.bet4life.repositories.base;
 
 import com.teamproject.bet4life.models.User;
 

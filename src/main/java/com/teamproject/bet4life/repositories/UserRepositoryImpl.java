@@ -1,6 +1,7 @@
 package com.teamproject.bet4life.repositories;
 
 import com.teamproject.bet4life.models.User;
+import com.teamproject.bet4life.repositories.base.UserRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -16,7 +17,6 @@ public class UserRepositoryImpl implements UserRepository {
 
     public UserRepositoryImpl(SessionFactory factory) {
         this.factory = factory;
-        System.out.println("Users Repository initialized successfully.");
     }
 
     @Override
@@ -60,15 +60,17 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User findByUsername(String username) {
         User user = null;
-        try {
-            Session session = factory.openSession();
+        try (Session session = factory.openSession()) {
             session.beginTransaction();
+
             Query query= session.createQuery("from User where username=:uname");
             query.setParameter("uname",username);
             user = (User)query.uniqueResult();
 
             session.getTransaction().commit();
-        }catch (Exception e){e.printStackTrace();}
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
         return user;
     }
