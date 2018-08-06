@@ -1,7 +1,7 @@
 package com.teamproject.bet4life;
 
-import com.teamproject.bet4life.model.Role;
-import com.teamproject.bet4life.model.User;
+import com.teamproject.bet4life.models.Role;
+import com.teamproject.bet4life.models.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

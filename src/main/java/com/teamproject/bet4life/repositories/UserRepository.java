@@ -1,6 +1,6 @@
 package com.teamproject.bet4life.repositories;
 
-import com.teamproject.bet4life.model.User;
+import com.teamproject.bet4life.models.User;
 
 import java.util.List;
 

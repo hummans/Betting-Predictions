@@ -1,7 +1,7 @@
 package com.teamproject.bet4life.configuration;
 
 
-import com.teamproject.bet4life.model.User;
+import com.teamproject.bet4life.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;

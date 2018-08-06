@@ -2,7 +2,7 @@
 package com.teamproject.bet4life.controller;
 
 import com.teamproject.bet4life.RegistrationModel.RegistrationModel;
-import com.teamproject.bet4life.model.User;
+import com.teamproject.bet4life.models.User;
 import com.teamproject.bet4life.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package com.teamproject.bet4life.model;
+package com.teamproject.bet4life.models;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -20,6 +20,9 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "fullname")
+    private String fullname;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
@@ -27,25 +30,6 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "roleID")
     )
     private Set<Role> roles;
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
-
-    public User() {
-
-    }
-
-    public User(String username, String password){
-        this.username = username;
-        this.password = password;
-
-        this.roles = new HashSet<>();
-    }
 
     public int getId() {
         return id;
@@ -69,5 +53,28 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFullname() { return fullname; }
+
+    public void setFullname(String fullname) { this.fullname = fullname; }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public User() {
+    }
+
+    public User(String username, String fullname, String password){
+        this.username = username;
+        this.fullname = fullname;
+        this.password = password;
+
+        this.roles = new HashSet<>();
     }
 }

@@ -1,4 +1,4 @@
-package com.teamproject.bet4life.model;
+package com.teamproject.bet4life.models;
 
 import javax.persistence.*;
 import java.util.HashSet;

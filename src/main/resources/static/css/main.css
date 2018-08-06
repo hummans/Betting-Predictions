@@ -1,3 +1,11 @@
+body {
+    background-image: url('http://www.atlanticmedia.co/pages/backgrounds/background_home.jpg');
+}
+
+.navbar-inverse {
+    background-color:rgba(0, 0, 0, 0.7);
+}
+
 h1 {
     color: #78ab46;
 }
