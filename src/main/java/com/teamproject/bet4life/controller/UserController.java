@@ -1,8 +1,10 @@
 package com.teamproject.bet4life.controller;
 
 import com.teamproject.bet4life.bindingModel.UserBindingModel;
+import com.teamproject.bet4life.models.Role;
 import com.teamproject.bet4life.models.User;
 import com.teamproject.bet4life.repositories.base.RoleRepository;
+import com.teamproject.bet4life.services.base.RoleService;
 import com.teamproject.bet4life.services.base.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -10,20 +12,31 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class UserController {
 
     @Autowired
     private UserService service;
 
-    private RoleRepository roleRepository;
+    @Autowired
+    private RoleService roleService;
 
     @Autowired
-    public UserController(UserService service) {
+    public UserController(UserService service, RoleService roleService) {
         this.service = service;
+        this.roleService = roleService;
     }
 
+    @GetMapping("/register")
+    public String register(Model model) {
+        model.addAttribute("view", "user/register");
 
+        return "base-layout";
+    }
+
+    /*
     @GetMapping("/register")
     public String register(Model model) {
         model.addAttribute("view", "user/register");
@@ -38,14 +51,14 @@ public class UserController {
 
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
-        /*
+
         User user = new User(
                 userBindingModel.getUsername(),
                 bCryptPasswordEncoder.encode(userBindingModel.getPassword())
         );
 
         service.registerUser(user);
-        */
+
         return "redirect:/";
     }
 
@@ -54,7 +67,7 @@ public class UserController {
         model.addAttribute("view", "user/loginn");
         return "user/loginn";
     }
-    /*
+
     @GetMapping("all")
     List<User> getAllUsers(){
         List<User> sad = services.getAllUsers();
@@ -78,6 +91,6 @@ public class UserController {
     public void setService(UserService services) {
         this.services = services;
     }
-    */
 
+    */
 }
