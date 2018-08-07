@@ -1,0 +1,27 @@
+package com.teamproject.bet4life.services;
+
+import com.teamproject.bet4life.models.Bet;
+import com.teamproject.bet4life.repositories.base.BetRepository;
+import com.teamproject.bet4life.services.base.BetService;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+
+public class BetServiceImpl implements BetService {
+    private BetRepository betRepository;
+
+    @Autowired
+    public BetServiceImpl(BetRepository betRepository) {
+        this.betRepository = betRepository;
+    }
+
+    @Override
+    public List<Bet> getAllBets() {
+        return this.betRepository.getAllBets();
+    }
+
+    @Override
+    public Bet findByDescription(String description) {
+        return this.betRepository.findByDescription(description);
+    }
+}
