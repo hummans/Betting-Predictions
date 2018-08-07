@@ -4,9 +4,11 @@ import com.teamproject.bet4life.models.Bet;
 import com.teamproject.bet4life.repositories.base.BetRepository;
 import com.teamproject.bet4life.services.base.BetService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class BetServiceImpl implements BetService {
     private BetRepository betRepository;
 

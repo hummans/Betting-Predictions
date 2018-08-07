@@ -4,7 +4,9 @@ import com.teamproject.bet4life.models.Prediction;
 import com.teamproject.bet4life.repositories.base.PredictionRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class PredictionRepositoryImpl implements PredictionRepository {
 
     private SessionFactory factory;
