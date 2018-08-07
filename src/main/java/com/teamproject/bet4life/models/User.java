@@ -1,7 +1,9 @@
 package com.teamproject.bet4life.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -30,6 +32,9 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "roleID")
     )
     private Set<Role> roles;
+
+    @OneToMany(mappedBy = "user")
+    private List<Prediction> predictions;
 
     public int getId() {
         return id;
@@ -67,9 +72,18 @@ public class User {
         this.roles = roles;
     }
 
+    public List<Prediction> getPredictions() {
+        return predictions;
+    }
+
+    public void setPredictions(List<Prediction> predictions) {
+        this.predictions = predictions;
+    }
+
     public void addRole(Role role) { this.roles.add(role); }
 
     public User() {
+        this.predictions = new ArrayList<>();
         this.roles = new HashSet<>();
     }
 
@@ -78,6 +92,7 @@ public class User {
         this.fullname = fullname;
         this.password = password;
 
+        this.predictions = new ArrayList<>();
         this.roles = new HashSet<>();
     }
 }

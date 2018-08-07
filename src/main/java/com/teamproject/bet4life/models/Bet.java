@@ -1,6 +1,8 @@
 package com.teamproject.bet4life.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "bets")
@@ -19,6 +21,9 @@ public class Bet {
 
     @Column(name = "outcomeB")
     private String outcomeB;
+
+    @OneToMany(mappedBy = "bet")
+    private List<Prediction> predictions;
 
     public int getId() {
         return id;
@@ -52,12 +57,23 @@ public class Bet {
         this.outcomeB = outcomeB;
     }
 
+    public List<Prediction> getPredictions() {
+        return predictions;
+    }
+
+    public void setPredictions(List<Prediction> predictions) {
+        this.predictions = predictions;
+    }
+
     public Bet() {
+        this.predictions = new ArrayList<>();
     }
 
     public Bet(String description, String outcomeA, String outcomeB) {
         this.description = description;
         this.outcomeA = outcomeA;
         this.outcomeB = outcomeB;
+
+        this.predictions = new ArrayList<>();
     }
 }
