@@ -6,8 +6,10 @@ import com.teamproject.bet4life.models.User;
 import com.teamproject.bet4life.services.base.RoleService;
 import com.teamproject.bet4life.services.base.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
@@ -82,6 +84,25 @@ public class UserController {
         }
 
         return "redirect:/login?logout";
+    }
+
+    @GetMapping("/profile")
+    @PreAuthorize("isAuthenticated()")
+    public String profilePage(Model model) {
+        // get currently logged in user
+        UserDetails principal =
+                (UserDetails) SecurityContextHolder.getContext()
+                                                   .getAuthentication()
+                                                    .getPrincipal();
+
+        User user = this.userService.findByUsername(principal.getUsername());
+
+        // add user to model
+        model.addAttribute("user", user);
+
+        // return the view
+        model.addAttribute("view", "user/profile");
+        return "base-layout";
     }
     /*
     @GetMapping("all")
