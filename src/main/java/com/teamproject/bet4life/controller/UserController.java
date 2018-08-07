@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class UserController {
 
@@ -62,13 +64,13 @@ public class UserController {
         return "redirect:/login";
     }
 
-    /*
+
     @GetMapping("/login")
     public String login(Model model) {
-        model.addAttribute("view", "user/loginn");
-        return "user/loginn";
+        model.addAttribute("view", "user/login");
+        return "base-layout";
     }
-
+    /*
     @GetMapping("all")
     List<User> getAllUsers(){
         List<User> sad = services.getAllUsers();
