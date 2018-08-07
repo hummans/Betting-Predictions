@@ -20,7 +20,7 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "fullname")
+    @Column(name = "fullname", nullable = false)
     private String fullname;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -67,7 +67,12 @@ public class User {
         this.roles = roles;
     }
 
+    public void addRole(Role role) {
+        this.roles.add(role);
+    }
+
     public User() {
+        this.roles = new HashSet<>();
     }
 
     public User(String username, String fullname, String password){

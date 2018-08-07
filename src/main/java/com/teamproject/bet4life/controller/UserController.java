@@ -1,9 +1,8 @@
 package com.teamproject.bet4life.controller;
 
-import com.teamproject.bet4life.bindingModel.UserBindingModel;
+import com.teamproject.bet4life.bindingModels.UserBindingModel;
 import com.teamproject.bet4life.models.Role;
 import com.teamproject.bet4life.models.User;
-import com.teamproject.bet4life.repositories.base.RoleRepository;
 import com.teamproject.bet4life.services.base.RoleService;
 import com.teamproject.bet4life.services.base.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,20 +11,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 public class UserController {
 
     @Autowired
-    private UserService service;
+    private UserService userService;
 
     @Autowired
     private RoleService roleService;
 
     @Autowired
-    public UserController(UserService service, RoleService roleService) {
-        this.service = service;
+    public UserController(UserService userService, RoleService roleService) {
+        this.userService = userService;
         this.roleService = roleService;
     }
 
@@ -36,32 +33,36 @@ public class UserController {
         return "base-layout";
     }
 
-    /*
-    @GetMapping("/register")
-    public String register(Model model) {
-        model.addAttribute("view", "user/register");
-        return "user/register";
-    }
+
+
 
     @PostMapping("/register")
     public String registerProcess(UserBindingModel userBindingModel) {
+        // check if password matches
         if (!userBindingModel.getPassword().equals(userBindingModel.getConfirmPassword())) {
             return "redirect:/register";
         }
 
+        // encode password
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
-
+        // create user instance
         User user = new User(
                 userBindingModel.getUsername(),
+                userBindingModel.getFullname(),
                 bCryptPasswordEncoder.encode(userBindingModel.getPassword())
         );
 
-        service.registerUser(user);
+        // assign role
+        Role userRole = this.roleService.findByName("ROLE_USER");
+        user.addRole(userRole);
 
-        return "redirect:/";
+        userService.registerUser(user);
+
+        return "redirect:/login";
     }
 
+    /*
     @GetMapping("/login")
     public String login(Model model) {
         model.addAttribute("view", "user/loginn");

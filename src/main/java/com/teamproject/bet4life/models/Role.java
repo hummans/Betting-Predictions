@@ -1,5 +1,7 @@
 package com.teamproject.bet4life.models;
 
+import org.springframework.stereotype.Controller;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -8,6 +10,7 @@ import java.util.Set;
 @Table(name="roles")
 public class Role {
     @Id
+    @Column(name="roleID")
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private int id;
 

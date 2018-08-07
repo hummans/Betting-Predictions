@@ -77,19 +77,15 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public boolean registerUser(User u) {
-        Session s = null;
 
-        try{
-            s = factory.openSession();
-            s.beginTransaction();
-            s.save(u);
-            s.getTransaction().commit();
+        try (Session session = factory.openSession()) {
+            session.beginTransaction();
+            session.save(u);
+            session.getTransaction().commit();
 
             return true;
-        }catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (Exception e){
             e.printStackTrace();
-
             return false;
         }
     }
