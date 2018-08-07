@@ -1,0 +1,10 @@
+package com.teamproject.bet4life.repositories.base;
+
+import com.teamproject.bet4life.models.Bet;
+
+import java.util.List;
+
+public interface BetRepository {
+    List<Bet> getAllBets();
+    Bet findByDescription(String description);
+}
