@@ -8,8 +8,8 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label" for="prediction_bet">Select bet</label>
                         <div class="col-sm-6">
-                            <select class="form-control" id="prediction_bet" name="bet">
-                                <option th:each="bet : ${bets}" th:text="${bet.getDescription()}">1</option>
+                            <select class="form-control" id="prediction_bet" name="betDescription"  >
+                                <option th:each="bet : ${bets}" th:text="${bet.getDescription()}" >1</option>
                             </select>
                         </div>
                     </div>
@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label" for="prediction_content">Prediction</label>
                         <div class="col-sm-6">
-                            <textarea class="form-control" rows="6" id="prediction_content" name="prediction"></textarea>
+                            <textarea class="form-control" rows="6" id="prediction_content" name="content"></textarea>
                         </div>
                     </div>
 
