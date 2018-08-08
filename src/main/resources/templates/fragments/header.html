@@ -8,16 +8,16 @@
                 <a th:href="@{/}">Home</a>
             </li>
             <li>
-                <a th:href="@{/}">Bets</a>
+                <a th:href="@{/}">Betting Events</a>
             </li>
             <li sec:authorize="isAuthenticated()">
-                <a th:href="@{/}">Make Bet</a>
+                <a th:href="@{/}">Add Betting Event</a>
             </li>
             <li>
                 <a th:href="@{/}">Predictions</a>
             </li>
             <li sec:authorize="isAuthenticated()">
-                <a th:href="@{/}">Make Prediction</a>
+                <a th:href="@{/prediction/make}">Make Prediction</a>
             </li>
             <li>
                 <a th:href="@{/}">Users</a>

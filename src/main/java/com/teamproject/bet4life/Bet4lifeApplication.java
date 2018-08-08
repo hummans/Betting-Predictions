@@ -10,7 +10,7 @@ public class Bet4lifeApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(Bet4lifeApplication.class, args);
-    }
+     }
 
     @Bean
     public ModelMapper getModelMapper(){
