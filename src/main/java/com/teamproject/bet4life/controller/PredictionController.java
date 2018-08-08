@@ -56,7 +56,7 @@ public class PredictionController {
 
         // extract bet from database
         Bet bet = this.betService.findByDescription(predictionBindingModel.getBetDescription());
-        System.out.println(predictionBindingModel.getBetDescription());
+        
 
         Prediction newPrediction = new Prediction(
                                     predictionBindingModel.getContent(),
