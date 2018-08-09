@@ -5,7 +5,7 @@ import com.teamproject.bet4life.models.Bet;
 import java.util.List;
 
 public interface BetService {
-    List<Bet> getAllBets();
+    List<Bet> getAll();
 
     Bet findByDescription(String description);
 }

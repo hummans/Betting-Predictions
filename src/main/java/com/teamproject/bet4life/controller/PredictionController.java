@@ -34,7 +34,7 @@ public class PredictionController {
     @GetMapping("/prediction/make")
     @PreAuthorize("isAuthenticated()")
     public String make(Model model) {
-        List<Bet> bets = this.betService.getAllBets();
+        List<Bet> bets = this.betService.getAll();
 
         model.addAttribute("bets", bets);
 

@@ -18,8 +18,8 @@ public class BetServiceImpl implements BetService {
     }
 
     @Override
-    public List<Bet> getAllBets() {
-        return this.betRepository.getAllBets();
+    public List<Bet> getAll() {
+        return this.betRepository.getAll();
     }
 
     @Override

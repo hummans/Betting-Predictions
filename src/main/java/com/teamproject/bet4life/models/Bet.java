@@ -18,11 +18,9 @@ public class Bet {
     @Column(name = "description")
     private String description;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    @Temporal(TemporalType.TIME)
-    private Date time;
 
     @OneToMany(mappedBy = "bet")
     private List<Prediction> predictions;
@@ -51,14 +49,6 @@ public class Bet {
         this.date = date;
     }
 
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
-    }
-
     public List<Prediction> getPredictions() {
         return predictions;
     }
@@ -74,6 +64,7 @@ public class Bet {
     public Bet(String description) {
         this.description = description;
 
+        this.date = new Date();
         this.predictions = new ArrayList<>();
     }
 }

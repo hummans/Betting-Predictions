@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class BetRepositoryImpl implements BetRepository {
@@ -20,7 +21,7 @@ public class BetRepositoryImpl implements BetRepository {
     }
 
     @Override
-    public List<Bet> getAllBets() {
+    public List<Bet> getAll() {
         List<Bet> bets = new ArrayList<>();
 
         try (Session session = factory.openSession()){
@@ -40,7 +41,10 @@ public class BetRepositoryImpl implements BetRepository {
 
     @Override
     public List<Bet> getLatest5() {
-        return null;
+        return getAll().stream()
+                .sorted((a,b) -> b.getDate().compareTo(a.getDate()))
+                .limit(5)
+                .collect(Collectors.toList());
     }
 
     @Override
