@@ -15,11 +15,10 @@ public class Prediction {
     @Column(name="content")
     private String content;
 
-    @Temporal(TemporalType.DATE)
+    @Column(name = "date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    @Temporal(TemporalType.TIME)
-    private Date time;
 
     @ManyToOne
     @JoinColumn(name="userID")
@@ -53,13 +52,6 @@ public class Prediction {
         this.date = date;
     }
 
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
-    }
 
     public User getUser() {
         return user;
@@ -83,7 +75,6 @@ public class Prediction {
     public Prediction(String content, User user, Bet bet) {
         this.content = content;
         this.date = new Date();
-        this.time = new Date();
         this.user = user;
         this.bet = bet;
     }

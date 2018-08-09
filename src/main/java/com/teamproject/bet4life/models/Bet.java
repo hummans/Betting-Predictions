@@ -14,6 +14,7 @@ public class Bet {
     @Column(name = "betID")
     private int id;
 
+
     @Column(name = "description")
     private String description;
 

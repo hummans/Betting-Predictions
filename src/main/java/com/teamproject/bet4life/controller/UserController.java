@@ -1,6 +1,7 @@
 package com.teamproject.bet4life.controller;
 
 import com.teamproject.bet4life.bindingModels.UserBindingModel;
+import com.teamproject.bet4life.models.Prediction;
 import com.teamproject.bet4life.models.Role;
 import com.teamproject.bet4life.models.User;
 import com.teamproject.bet4life.services.base.RoleService;
@@ -21,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class UserController {
@@ -113,6 +115,32 @@ public class UserController {
 
         // return the view
         model.addAttribute("view", "user/profile");
+        return "base-layout";
+    }
+
+    @GetMapping("/user/predictions")
+    @PreAuthorize("isAuthenticated()")
+    public String myPredictions(Model model) {
+        // get currently logged in user
+        UserDetails principal =
+                (UserDetails) SecurityContextHolder.getContext()
+                        .getAuthentication()
+                        .getPrincipal();
+
+        User user = this.userService.findByUsername(principal.getUsername());
+
+        // get predictions
+        List<Prediction> userPredictions = user.getPredictions().stream()
+                .sorted((a,b) -> b.getDate().compareTo(a.getDate()))
+                .collect(Collectors.toList());
+
+        // add predictions to model
+        model.addAttribute("userPredictions", userPredictions);
+
+        model.addAttribute("user", user);
+
+        // return the view
+        model.addAttribute("view", "user/predictions");
         return "base-layout";
     }
     /*

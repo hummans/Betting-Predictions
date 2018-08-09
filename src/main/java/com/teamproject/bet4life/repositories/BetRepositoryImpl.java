@@ -39,6 +39,11 @@ public class BetRepositoryImpl implements BetRepository {
     }
 
     @Override
+    public List<Bet> getLatest5() {
+        return null;
+    }
+
+    @Override
     public Bet findByDescription(String description) {
         Bet bet = null;
 

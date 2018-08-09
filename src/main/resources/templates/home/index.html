@@ -35,8 +35,8 @@
             </div>
             <div>
                 <i>on:</i>
-                <span th:text="${#dates.format(prediction.getDate(), 'dd-MMM-yyyy')}">01-July-1997</span>
-                <span th:text="${#dates.format(prediction.getTime(), 'HH:mm')}">21:00</span>
+                <span th:text="${#dates.format(prediction.getDate(), 'dd-MMM-yyyy HH:mm')}">01-July-1997 21:00:00</span>
+                <!--<span th:text="${#dates.format(prediction.getTime(), 'HH:mm:ss')}">21:00</span>-->
             </div>
         </div>
     </div>
