@@ -48,4 +48,12 @@ public class HomeController {
     }
 
 
+    @GetMapping("/users")
+    public String indexUsers(Model model) {
+        List<User> allUsers = this.userService.getAllUsers();
+        model.addAttribute("allUsers", allUsers);
+
+        model.addAttribute("view", "home/users");
+        return "base-layout";
+    }
 }

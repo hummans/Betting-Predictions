@@ -1,0 +1,15 @@
+<main>
+    <div class="container-fluid">
+        <h1>Users</h1>
+        <div class="row legend">
+            <div class="col-sm-3" >Username</div>
+            <div class="col-sm-6" >Full Name</div>
+            <div class="col-sm-3" >Predictions</div>
+        </div>
+        <div class="row single-rows" th:each="user : ${allUsers}">
+            <div class="col-sm-3"  th:text="${user.getUsername()}">Username</div>
+            <div class="col-sm-6" th:text="${user.getFullname()}">Full Name</div>
+            <div class="col-sm-3" th:text="${user.getPredictions().size()}">Predictions</div>
+        </div>
+    </div>
+</main>
