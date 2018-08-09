@@ -60,11 +60,11 @@ div[class="card text-center"] {
 
 .container-fluid {
     text-align: center;
-    margin:40px;
+    margin: 40px;
     color: white;
 }
-
 .container-fluid > h1 {
+
     text-align: left;
 }
 
@@ -88,6 +88,8 @@ div[class="card text-center"] {
     padding: 15px;
     background-color:rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
 }
 
 /*index page styles*/

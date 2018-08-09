@@ -31,11 +31,10 @@ public class DatabaseTestHibernate {
         Session session = factory.openSession();
         session.beginTransaction();
 
-        User u = session.get(User.class, 2);
+        List<Bet> bets = session.createQuery("From Bet").list();
 
-        for (Prediction p : u.getPredictions()) {
-            System.out.println(u.getUsername() + " :" + p.getContent() +
-            " for: " + p.getBet().getDescription());
+        for (Bet b : bets) {
+            System.out.println(b.getDescription());
         }
 
         session.getTransaction().commit();
