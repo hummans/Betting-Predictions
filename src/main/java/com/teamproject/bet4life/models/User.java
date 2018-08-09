@@ -97,4 +97,5 @@ public class User {
         this.predictions = new ArrayList<>();
         this.roles = new HashSet<>();
     }
+
 }

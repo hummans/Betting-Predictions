@@ -53,9 +53,13 @@ div[class="card text-center"] {
 }
 
 .card-header {
-    background-color:rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* navbar style*/
+.navbar-nav a {
+    font-size: 1.2em;
+}
 /* user predictions styling*/
 
 .container-fluid {

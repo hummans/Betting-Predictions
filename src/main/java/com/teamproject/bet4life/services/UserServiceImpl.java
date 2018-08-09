@@ -26,6 +26,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> getTop3() {
+        return this.userRepository.getTop3();
+    }
+
+    @Override
     public User getUserByID(int id) {
         return userRepository.getUserByID(id);
     }

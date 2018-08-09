@@ -8,7 +8,10 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {
@@ -30,13 +33,28 @@ public class UserRepositoryImpl implements UserRepository {
             Query query = s.createQuery("FROM User");
             users = query.list();
             s.getTransaction().commit();
-            System.out.println("Users retrieved successfully.");
         }catch(Exception e){
             System.out.print(e.getMessage());
             e.printStackTrace();
         }
 
+        if (users != null) {
+            Collections.sort(users, new Comparator<User>() {
+                @Override
+                public int compare(User o1, User o2) {
+                    return o2.getPredictions().size() - o1.getPredictions().size();
+                }
+            });
+        }
+
         return users;
+    }
+
+    @Override
+    public List<User> getTop3() {
+        return getAllUsers().stream()
+                .limit(3)
+                .collect(Collectors.toList());
     }
 
     @Override

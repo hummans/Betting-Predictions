@@ -8,6 +8,8 @@ public interface UserService extends FieldValueExists{
 
     List<User> getAllUsers();
 
+    List<User> getTop3();
+
     User getUserByID(int id);
 
     User findByUsername(String username);
