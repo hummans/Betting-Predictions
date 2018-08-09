@@ -42,6 +42,17 @@ input[class="form-control"], .form-control {
     color:red;
 }
 
+div[class="card text-center"] {
+    background-color:rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 30px;
+    margin: 25px;
+}
+
+.card-header {
+    background-color:rgba(0, 0, 0, 0.7);
+}
+
 h1 {
     color: #78ab46;
 }

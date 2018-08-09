@@ -33,8 +33,10 @@ public class User {
     )
     private Set<Role> roles;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Prediction> predictions;
+
+
 
     public int getId() {
         return id;

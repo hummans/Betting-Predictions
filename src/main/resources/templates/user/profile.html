@@ -1,13 +1,11 @@
-<main>
-    <div class="container body-container">
-        <div class="row">
-            <div id="main" class="col-sm-9">
-                <div>
-                    <span th:text="${user.username}"></span>
-                    <br/>
-                    <span th:text="${user.fullname}"></span>
-                </div>
-            </div>
-        </div>
+<div class="card text-center">
+    <div class="card-header">
+        Account Info
     </div>
-</main>
+    <div class="card-body">
+        <h5 class="card-title" th:text="${'Username: ' + user.username}">Username</h5>
+        <h5 class="card-title" th:text="${'Full Name: ' + user.fullname}">Full name</h5>
+        <p class="card-text" th:text="${'Predictions: ' + user.predictions.size()}">Predictions</p>
+        <a href="#" class="btn btn-primary">See Predictions</a>
+    </div>
+</div>

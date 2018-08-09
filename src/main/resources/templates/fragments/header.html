@@ -24,11 +24,24 @@
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+            <!--
             <li sec:authorize="isAuthenticated()">
                 <a th:href="@{/profile}">
                     <span class="glyphicon glyphicon-user"></span>
                     Profile
                 </a>
+            </li>
+            -->
+            <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+                <a class="nav-link dropdown-toggle" th:href="@{/}" id="navbardrop" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user"></span>
+                    My Profile
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" th:href="@{/profile}">Account Info</a></li>
+                    <li><a class="dropdown-item" th:href="@{/}">My Predictions</a></li>
+                </ul>
             </li>
             <li sec:authorize="isAuthenticated()">
                 <a th:href="@{/logout}">
