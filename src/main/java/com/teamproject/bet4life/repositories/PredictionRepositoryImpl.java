@@ -7,6 +7,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,13 +36,21 @@ public class PredictionRepositoryImpl implements PredictionRepository {
             System.out.println(e.getMessage());
         }
 
+        if (predictions != null) {
+            Collections.sort(predictions, new Comparator<Prediction>() {
+                @Override
+                public int compare(Prediction o1, Prediction o2) {
+                    return o2.getDate().compareTo(o1.getDate());
+                }
+            });
+        }
+
         return predictions;
     }
 
     @Override
     public List<Prediction> getLatest5() {
         return getAll().stream()
-                .sorted((a,b) -> b.getDate().compareTo(a.getDate()))
                 .limit(5)
                 .collect(Collectors.toList());
     }

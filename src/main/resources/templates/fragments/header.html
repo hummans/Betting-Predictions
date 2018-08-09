@@ -14,7 +14,7 @@
                 <a th:href="@{/}">Add Betting Event</a>
             </li>
             <li>
-                <a th:href="@{/}">Predictions</a>
+                <a th:href="@{/predictions}">Predictions</a>
             </li>
             <li sec:authorize="isAuthenticated()">
                 <a th:href="@{/prediction/make}">Make Prediction</a>
@@ -40,7 +40,7 @@
 
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" th:href="@{/profile}">Account Info</a></li>
-                    <li><a class="dropdown-item" th:href="@{/user/predictions}">My Predictions</a></li>
+                    <li><a class="dropdown-item" th:href="@{/user/user-predictions}">My Predictions</a></li>
                 </ul>
             </li>
             <li sec:authorize="isAuthenticated()">

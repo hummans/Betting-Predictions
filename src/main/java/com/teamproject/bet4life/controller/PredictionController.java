@@ -70,5 +70,13 @@ public class PredictionController {
 
     }
 
+    @GetMapping("/predictions")
+    public String allPredictions(Model model) {
+        List<Prediction> allPredictions = this.predictionService.getAll();
+        model.addAttribute("allPredictions", allPredictions);
+
+        model.addAttribute("view", "prediction/all-predictions");
+        return "base-layout";
+    }
 
 }

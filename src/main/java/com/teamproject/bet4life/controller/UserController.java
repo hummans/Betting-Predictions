@@ -118,7 +118,7 @@ public class UserController {
         return "base-layout";
     }
 
-    @GetMapping("/user/predictions")
+    @GetMapping("/user/user-predictions")
     @PreAuthorize("isAuthenticated()")
     public String myPredictions(Model model) {
         // get currently logged in user
@@ -140,7 +140,7 @@ public class UserController {
         model.addAttribute("user", user);
 
         // return the view
-        model.addAttribute("view", "user/predictions");
+        model.addAttribute("view", "user/user-predictions");
         return "base-layout";
     }
     /*

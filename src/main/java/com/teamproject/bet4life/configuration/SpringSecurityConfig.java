@@ -71,7 +71,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
 
     public SessionFactory createFactory(){
-        System.out.println("SessionFactory initialized successfully.");
         return new org.hibernate.cfg.Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(User.class)
