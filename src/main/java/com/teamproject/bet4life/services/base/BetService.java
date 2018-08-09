@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface BetService {
     List<Bet> getAllBets();
+
     Bet findByDescription(String description);
 }

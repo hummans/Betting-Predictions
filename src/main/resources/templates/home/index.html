@@ -9,7 +9,7 @@
 -->
 <div class="index-page-wrapper">
     <div class="col-sm-4">
-        <h2>Events</h2>
+        <h2>Latest Betting Events</h2>
         <!--<h4><small>RECENT BETS</small></h4>-->
         <div class="well">
             <p>Some text..</p>
@@ -23,14 +23,21 @@
     </div>
     <div class="col-sm-4">
         <h2>Latest Predictions</h2>
-        <div class="well">
-            <p>Some text..</p>
-        </div>
-        <div class="well">
-            <p>Upcoming Events..</p>
-        </div>
-        <div class="well">
-            <p>Visit Our Blog</p>
+        <div class="well latest-content-info" th:each="prediction : ${predictions}">
+            <h3  th:text="${prediction.getContent()}">Prediction content</h3>
+            <div>
+                <i>for:</i>
+                <span th:text="${prediction.getBet().getDescription()}">Bet Description</span>
+            </div>
+            <div>
+                <i>by:</i>
+                <span th:text="${prediction.getUser().getUsername()}">Username</span>
+            </div>
+            <div>
+                <i>on:</i>
+                <span th:text="${#dates.format(prediction.getDate(), 'dd-MMM-yyyy')}">01-July-1997</span>
+                <span th:text="${#dates.format(prediction.getTime(), 'HH:mm')}">21:00</span>
+            </div>
         </div>
     </div>
     <div class="col-sm-4">

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class PredictionRepositoryImpl implements PredictionRepository {
@@ -34,6 +35,14 @@ public class PredictionRepositoryImpl implements PredictionRepository {
         }
 
         return predictions;
+    }
+
+    @Override
+    public List<Prediction> getLatest5() {
+        return getAll().stream()
+                .sorted((a,b) -> b.getDate().compareTo(a.getDate()))
+                .limit(5)
+                .collect(Collectors.toList());
     }
 
     @Override

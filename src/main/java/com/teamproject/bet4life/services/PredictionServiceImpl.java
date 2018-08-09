@@ -21,6 +21,11 @@ public class PredictionServiceImpl implements PredictionService {
     }
 
     @Override
+    public List<Prediction> getLatest5() {
+        return this.predictionRepository.getLatest5();
+    }
+
+    @Override
     public boolean savePrediction(Prediction prediction) {
         return this.predictionRepository.savePrediction(prediction);
     }

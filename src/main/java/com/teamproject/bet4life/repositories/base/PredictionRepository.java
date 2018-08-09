@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface PredictionRepository {
     List<Prediction> getAll();
+    List<Prediction> getLatest5();
     boolean savePrediction(Prediction prediction);
 }

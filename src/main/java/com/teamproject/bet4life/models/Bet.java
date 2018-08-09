@@ -2,6 +2,7 @@ package com.teamproject.bet4life.models;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -15,6 +16,12 @@ public class Bet {
 
     @Column(name = "description")
     private String description;
+
+    @Temporal(TemporalType.DATE)
+    private Date date;
+
+    @Temporal(TemporalType.TIME)
+    private Date time;
 
     @OneToMany(mappedBy = "bet")
     private List<Prediction> predictions;
@@ -33,6 +40,22 @@ public class Bet {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 
     public List<Prediction> getPredictions() {
