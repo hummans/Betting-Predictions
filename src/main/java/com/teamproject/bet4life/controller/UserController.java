@@ -14,10 +14,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -36,18 +38,27 @@ public class UserController {
     }
 
     @GetMapping("/register")
-    public String register(Model model) {
+    public String register(Model model, @ModelAttribute UserBindingModel userBindingModel) {
         model.addAttribute("view", "user/register");
 
         return "base-layout";
     }
 
     @PostMapping("/register")
-    public String registerProcess(UserBindingModel userBindingModel) {
+    public String registerProcess(@Valid @ModelAttribute("userBindingModel")  UserBindingModel userBindingModel, BindingResult bindingResult, Model model) {
         // check if password matches
+        if (bindingResult.hasErrors()) {
+
+            model.addAttribute("view", "user/register");
+
+            return "base-layout";
+        }
+
+        /*
         if (!userBindingModel.getPassword().equals(userBindingModel.getConfirmPassword())) {
             return "redirect:/register";
         }
+        */
 
         // encode password
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();

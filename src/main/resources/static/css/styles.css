@@ -37,6 +37,11 @@ input[class="form-control"], .form-control {
     color:white;
 }
 
+.form-control-feedback {
+    all:unset;
+    color:red;
+}
+
 h1 {
     color: #78ab46;
 }

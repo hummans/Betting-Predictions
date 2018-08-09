@@ -89,4 +89,22 @@ public class UserRepositoryImpl implements UserRepository {
             return false;
         }
     }
+
+    @Override
+    public boolean isExistUsername(String username) {
+        try (Session session = factory.openSession()) {
+            session.beginTransaction();
+
+            Query query= session.createQuery("from User where username=:uname");
+            query.setParameter("uname",username);
+            if (query.uniqueResult() != null) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

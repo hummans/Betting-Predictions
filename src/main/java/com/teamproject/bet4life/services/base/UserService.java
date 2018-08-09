@@ -4,7 +4,7 @@ import com.teamproject.bet4life.models.User;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserService extends FieldValueExists{
 
     List<User> getAllUsers();
 
@@ -13,5 +13,7 @@ public interface UserService {
     User findByUsername(String username);
 
     boolean registerUser(User u);
+
+    boolean isExistUsername(String username);
 
 }

@@ -5,6 +5,7 @@ import com.teamproject.bet4life.repositories.base.UserRepository;
 import com.teamproject.bet4life.services.base.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import java.util.List;
 
@@ -39,5 +40,24 @@ public class UserServiceImpl implements UserService {
         return userRepository.registerUser(u);
     }
 
+    @Override
+    public boolean isExistUsername(String username) {
+        return userRepository.isExistUsername(username);
+    }
 
+
+    @Override
+    public boolean fieldValueExists(Object value, String fieldName) throws UnsupportedOperationException {
+        Assert.notNull(fieldName);
+
+        if (!fieldName.equals("username")) {
+            throw new UnsupportedOperationException("Field name not supported");
+        }
+
+        if (value == null) {
+            return false;
+        }
+
+        return this.userRepository.isExistUsername(value.toString());
+    }
 }

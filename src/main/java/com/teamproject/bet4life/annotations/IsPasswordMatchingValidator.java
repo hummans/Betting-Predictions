@@ -2,6 +2,7 @@ package com.teamproject.bet4life.annotations;
 
 
 import com.teamproject.bet4life.RegistrationModel.RegistrationModel;
+import com.teamproject.bet4life.bindingModels.UserBindingModel;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -14,10 +15,10 @@ public class IsPasswordMatchingValidator implements ConstraintValidator<IsPasswo
 
     @Override
     public boolean isValid(Object userClass, ConstraintValidatorContext context) {
-        if (userClass instanceof RegistrationModel) {
-            return ((RegistrationModel) userClass)
+        if (userClass instanceof UserBindingModel) {
+            return ((UserBindingModel) userClass)
                     .getPassword()
-                    .equals(((RegistrationModel) userClass)
+                    .equals(((UserBindingModel) userClass)
                             .getConfirmPassword());
         }
         return false;
