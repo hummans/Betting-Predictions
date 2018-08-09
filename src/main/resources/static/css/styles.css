@@ -18,8 +18,9 @@ body>footer {
 */
 
 body>footer {
-
+    clear:both;
     color:white;
+    padding:10px;
 }
 
 div.well {
@@ -89,8 +90,25 @@ div[class="card text-center"] {
     border-bottom: 1px solid white;
 }
 
+/*index page styles*/
 
+.index-page-wrapper {
+    display: flex;
+}
 
+.index-page-wrapper > .col-sm-4 {
+    color:white;
+    margin:5px;
+
+}
+
+.index-page-wrapper > .col-sm-4 {
+    background-color:rgba(0, 0, 0, 0.3);
+}
+
+.index-page-wrapper > .col-sm-4 > .well {
+    background-color:rgba(0, 0, 0, 0.5);
+}
 
 .error-message {
     color: #a94442;

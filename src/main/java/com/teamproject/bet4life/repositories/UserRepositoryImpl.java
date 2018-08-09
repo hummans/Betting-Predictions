@@ -95,7 +95,7 @@ public class UserRepositoryImpl implements UserRepository {
         try (Session session = factory.openSession()) {
             session.beginTransaction();
 
-            Query query= session.createQuery("from User where username=:uname");
+            Query query = session.createQuery("from User where username=:uname");
             query.setParameter("uname",username);
             if (query.uniqueResult() != null) {
                 return true;
