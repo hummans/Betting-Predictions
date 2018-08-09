@@ -56,4 +56,14 @@ public class HomeController {
         model.addAttribute("view", "home/users");
         return "base-layout";
     }
+
+    @GetMapping("/bets")
+    public String indexBets(Model model) {
+        List<Bet> allBets = this.betService.getAll();
+        model.addAttribute("allBets", allBets);
+
+        model.addAttribute("view", "home/bets");
+        return "base-layout";
+    }
+
 }

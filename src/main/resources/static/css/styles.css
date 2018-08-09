@@ -81,14 +81,14 @@ div[class="card text-center"] {
     border-top: 1px solid white;
 }
 
-.container-fluid > .single-rows > .col-sm-3{
+.container-fluid > .single-rows > .col-sm-3, .container-fluid > .single-rows > .col-sm-4{
     padding: 15px;
     background-color:rgba(0, 0, 0, 0.5);
     border-bottom: 1px solid white;
 
 }
 
-.container-fluid > .single-rows > .col-sm-6{
+.container-fluid > .single-rows > .col-sm-6, .container-fluid > .single-rows > .col-sm-8{
     padding: 15px;
     background-color:rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid white;
@@ -121,7 +121,7 @@ div[class="card text-center"] {
     font-weight: bold;
 }
 
-/* index page latest info style*/
+/* home/bets style*/
 
 
 .error-message {

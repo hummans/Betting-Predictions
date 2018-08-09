@@ -22,7 +22,7 @@ public class Bet {
     private Date date;
 
 
-    @OneToMany(mappedBy = "bet")
+    @OneToMany(mappedBy = "bet", fetch = FetchType.EAGER)
     private List<Prediction> predictions;
 
     public int getId() {

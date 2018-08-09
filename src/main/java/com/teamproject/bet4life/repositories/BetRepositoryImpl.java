@@ -1,6 +1,7 @@
 package com.teamproject.bet4life.repositories;
 
 import com.teamproject.bet4life.models.Bet;
+import com.teamproject.bet4life.models.Prediction;
 import com.teamproject.bet4life.repositories.base.BetRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,6 +9,8 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,13 +39,21 @@ public class BetRepositoryImpl implements BetRepository {
             e.printStackTrace();
         }
 
+        if (bets != null) {
+            Collections.sort(bets, new Comparator<Bet>() {
+                @Override
+                public int compare(Bet o1, Bet o2) {
+                    return o2.getDate().compareTo(o1.getDate());
+                }
+            });
+        }
+
         return bets;
     }
 
     @Override
     public List<Bet> getLatest5() {
         return getAll().stream()
-                .sorted((a,b) -> b.getDate().compareTo(a.getDate()))
                 .limit(5)
                 .collect(Collectors.toList());
     }

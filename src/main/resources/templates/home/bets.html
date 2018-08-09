@@ -1,0 +1,13 @@
+<main>
+    <div class="container-fluid">
+        <h1>Betting Events</h1>
+        <div class="row legend">
+            <div class="col-sm-8" >Event</div>
+            <div class="col-sm-4" >Predictions</div>
+        </div>
+        <div class="row single-rows" th:each="bet : ${allBets}">
+            <div class="col-sm-8" th:text="${bet.getDescription()}">Description</div>
+            <div class="col-sm-4"  th:text="${bet.getPredictions().size()}">Number of Predictions</div>
+        </div>
+    </div>
+</main>
