@@ -1,0 +1,15 @@
+<main>
+<div class="container-fluid">
+    <h1 th:text="${user.getUsername() + ' predictions'}">Predictions</h1>
+    <div class="row legend">
+        <div class="col-sm-3" >Event</div>
+        <div class="col-sm-6" >Prediction content</div>
+        <div class="col-sm-3" >Date</div>
+    </div>
+    <div class="row single-rows" th:each="prediction : ${userPredictions}">
+        <div class="col-sm-3"  th:text="${prediction.getBet().getDescription()}">Event</div>
+        <div class="col-sm-6" th:text="${prediction.getContent()}">Prediction content</div>
+        <div class="col-sm-3" th:text="${prediction.getDate() + ' ' + prediction.getTime()}">Date</div>
+    </div>
+</div>
+</main>

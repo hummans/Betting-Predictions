@@ -42,6 +42,8 @@ input[class="form-control"], .form-control {
     color:red;
 }
 
+/* user profile styles*/
+
 div[class="card text-center"] {
     background-color:rgba(0, 0, 0, 0.5);
     color: white;
@@ -53,9 +55,42 @@ div[class="card text-center"] {
     background-color:rgba(0, 0, 0, 0.7);
 }
 
-h1 {
-    color: #78ab46;
+/* user predictions styling*/
+
+.container-fluid {
+    text-align: center;
+    margin:40px;
+    color: white;
 }
+
+.container-fluid > h1 {
+    text-align: left;
+}
+
+.container-fluid > .legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 25px;
+    background-color:rgba(0, 0, 0, 0.7);
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+}
+
+.container-fluid > .single-rows > .col-sm-3{
+    padding: 15px;
+    background-color:rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid white;
+
+}
+
+.container-fluid > .single-rows > .col-sm-6{
+    padding: 15px;
+    background-color:rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid white;
+}
+
+
+
 
 .error-message {
     color: #a94442;

@@ -69,4 +69,28 @@ public class PredictionController {
         return "redirect:/";
 
     }
+
+    @GetMapping("/user/predictions")
+    @PreAuthorize("isAuthenticated()")
+    public String myPredictions(Model model) {
+        // get currently logged in user
+        UserDetails principal =
+                (UserDetails) SecurityContextHolder.getContext()
+                        .getAuthentication()
+                        .getPrincipal();
+
+        User user = this.userService.findByUsername(principal.getUsername());
+
+        // get predictions
+        List<Prediction> userPredictions = user.getPredictions();
+
+        // add predictions to model
+        model.addAttribute("userPredictions", userPredictions);
+
+        model.addAttribute("user", user);
+
+        // return the view
+        model.addAttribute("view", "user/predictions");
+        return "base-layout";
+    }
 }

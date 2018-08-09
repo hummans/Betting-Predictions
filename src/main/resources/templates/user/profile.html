@@ -6,6 +6,6 @@
         <h5 class="card-title" th:text="${'Username: ' + user.username}">Username</h5>
         <h5 class="card-title" th:text="${'Full Name: ' + user.fullname}">Full name</h5>
         <p class="card-text" th:text="${'Predictions: ' + user.predictions.size()}">Predictions</p>
-        <a href="#" class="btn btn-primary">See Predictions</a>
+        <a class="btn btn-primary" th:href="@{/user/predictions}">See Predictions</a>
     </div>
 </div>

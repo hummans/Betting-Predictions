@@ -6,6 +6,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Repository
 public class PredictionRepositoryImpl implements PredictionRepository {
 
@@ -15,6 +18,23 @@ public class PredictionRepositoryImpl implements PredictionRepository {
         this.factory = factory;
     }
 
+
+    @Override
+    public List<Prediction> getAll() {
+        List<Prediction> predictions = new ArrayList<>();
+
+        try(Session session = factory.openSession()) {
+            session.beginTransaction();
+
+            predictions = session.createQuery("From Prediction").list();
+
+            session.getTransaction().commit();
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return predictions;
+    }
 
     @Override
     public boolean savePrediction(Prediction prediction) {
