@@ -19,13 +19,18 @@ public class HomeController {
     @Autowired
     private PredictionService predictionService;
 
+    @Autowired
+    private BetService betService;
+
     @GetMapping("/")
     public String index(Model model) {
-        // get latest predictions
+        // get latest predictions and add to model
         List<Prediction> latestPredictions = this.predictionService.getLatest5();
-
-        // add predictions to model
         model.addAttribute("predictions", latestPredictions);
+
+        // get latest bets and add to model
+        List<Bet> latestBets = this.betService.getLatest5();
+        model.addAttribute("bets", latestBets);
 
         model.addAttribute("view", "home/index");
         return "base-layout";

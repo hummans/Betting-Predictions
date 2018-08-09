@@ -23,6 +23,11 @@ public class BetServiceImpl implements BetService {
     }
 
     @Override
+    public List<Bet> getLatest5() {
+        return this.betRepository.getLatest5();
+    }
+
+    @Override
     public Bet findByDescription(String description) {
         return this.betRepository.findByDescription(description);
     }

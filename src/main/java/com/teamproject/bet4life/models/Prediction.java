@@ -15,7 +15,6 @@ public class Prediction {
     @Column(name="content")
     private String content;
 
-    @Column(name = "date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 

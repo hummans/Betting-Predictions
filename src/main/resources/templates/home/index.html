@@ -10,15 +10,8 @@
 <div class="index-page-wrapper">
     <div class="col-sm-4">
         <h2>Latest Betting Events</h2>
-        <!--<h4><small>RECENT BETS</small></h4>-->
-        <div class="well">
-            <p>Some text..</p>
-        </div>
-        <div class="well">
-            <p>Upcoming Events..</p>
-        </div>
-        <div class="well">
-            <p>Visit Our Blog</p>
+        <div class="well latest-content-info" th:each="bet : ${bets}">
+            <h3  th:text="${bet.getDescription()}">Bet Description</h3>
         </div>
     </div>
     <div class="col-sm-4">
@@ -42,14 +35,8 @@
     </div>
     <div class="col-sm-4">
         <h2>Top Users</h2>
-        <div class="well">
-            <p>Some text..</p>
-        </div>
-        <div class="well">
-            <p>Upcoming Events..</p>
-        </div>
-        <div class="well">
-            <p>Visit Our Blog</p>
+        <div class="well latest-content-info" th:each="bet : ${bets}">
+            <h3  th:text="${bet.getDescription()}">Bet Description</h3>
         </div>
     </div>
 </div>

@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface BetService {
     List<Bet> getAll();
-
+    List<Bet> getLatest5();
     Bet findByDescription(String description);
 }
