@@ -15,7 +15,7 @@
             </div>
             <div>
                 <i>by:</i>
-                <span th:text="${prediction.getUser().getUsername()}">Username</span>
+                <a th:href="@{/user/view/{id}/(id=${prediction.getUser().getId()})}" th:text="${prediction.getUser().getUsername()}">Username</a>
             </div>
             <div>
                 <i>on:</i>
@@ -26,8 +26,8 @@
     </div>
     <div class="col-sm-4">
         <h1>Top 3 Users</h1>
-        <div class="well latest-content-info" th:each="user : ${users}">
-            <h3  th:text="${user.getUsername()}">Username</h3>
+        <div class="well latest-content-info" id="top-user-home" th:each="user : ${users}">
+            <a th:href="@{/user/view/{id}/(id=${user.getId()})}" th:text="${user.getUsername()}">Username</a>
             <p th:text="${'Predictions: ' + user.getPredictions().size()}">Number of predictions</p>
         </div>
     </div>

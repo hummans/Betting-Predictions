@@ -143,6 +143,15 @@ public class UserController {
         model.addAttribute("view", "user/user-predictions");
         return "base-layout";
     }
+
+    @RequestMapping("/user/view/{id}")
+    public String viewUser(@PathVariable("id") int id, Model model) {
+        User user = this.userService.getUserByID(id);
+        model.addAttribute("user", user);
+
+        model.addAttribute("view", "user/profile");
+        return "base-layout";
+    }
     /*
     @GetMapping("all")
     List<User> getAllUsers(){

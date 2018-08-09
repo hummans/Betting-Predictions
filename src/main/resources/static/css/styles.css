@@ -121,7 +121,21 @@ div[class="card text-center"] {
     font-weight: bold;
 }
 
-/* home/bets style*/
+/* index page user links style*/
+#top-user-home a{
+    color:white;
+    font-size:1.8em;
+}
+
+#top-user-home a:hover{
+    color:darkorange;
+}
+
+.latest-content-info a:hover {
+    color:darkorange;
+}
+
+
 
 
 .error-message {
