@@ -18,7 +18,6 @@ public class Prediction {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-
     @ManyToOne
     @JoinColumn(name="userID")
     private User user;

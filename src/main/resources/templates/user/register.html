@@ -7,7 +7,7 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label" for="user_username">Username</label>
                         <div class="col-sm-4 ">
-                            <input class="form-control" type="text" id="user_username" placeholder="Username" name="username" required="required"/>
+                            <input class="form-control" type="text" id="user_username" placeholder="Username"  name="username" required="required"/>
                             <div class="form-control-feedback" th:each="error : ${#fields.errors('username')}" th:text="${error}">Sorry,
                                 that username's taken. Try another?
                             </div>

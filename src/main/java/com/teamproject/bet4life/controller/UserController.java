@@ -7,6 +7,7 @@ import com.teamproject.bet4life.models.User;
 import com.teamproject.bet4life.services.base.RoleService;
 import com.teamproject.bet4life.services.base.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -39,6 +40,7 @@ public class UserController {
         this.roleService = roleService;
     }
 
+
     @GetMapping("/register")
     public String register(Model model, @ModelAttribute UserBindingModel userBindingModel) {
         model.addAttribute("view", "user/register");
@@ -56,11 +58,6 @@ public class UserController {
             return "base-layout";
         }
 
-        /*
-        if (!userBindingModel.getPassword().equals(userBindingModel.getConfirmPassword())) {
-            return "redirect:/register";
-        }
-        */
 
         // encode password
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
@@ -152,30 +149,5 @@ public class UserController {
         model.addAttribute("view", "user/profile");
         return "base-layout";
     }
-    /*
-    @GetMapping("all")
-    List<User> getAllUsers(){
-        List<User> sad = services.getAllUsers();
-        System.out.println(sad);
 
-        return sad;
-    }
-
-    @GetMapping("/id/{id}")
-    public User getUserByID(@PathVariable String id) {
-        User u = services.getUserByID(Integer.parseInt(id));
-        System.out.println(u);
-
-        return u;
-    }
-
-    public UserService getService() {
-        return services;
-    }
-
-    public void setService(UserService services) {
-        this.services = services;
-    }
-
-    */
 }
